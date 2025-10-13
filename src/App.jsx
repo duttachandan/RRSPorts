@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import Aos from 'aos';
-import 'aos/dist/aos.css'; // very important
-import styles from './style';
-import { Hero, Navbar } from './components';
+import React, { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css"; // very important
+import styles from "./style";
+import { Hero, Navbar } from "./components";
 import {
   Stats,
   Business,
@@ -12,7 +12,7 @@ import {
   Clients,
   CTA,
   Footer,
-} from './containers';
+} from "./containers";
 
 const App = () => {
   useEffect(() => {
@@ -23,44 +23,39 @@ const App = () => {
     });
   }, []);
   return (
-    <div className="bg-all w-full overflow-hidden">
-      <Navbar />
-      <main>
-        <section className='py-9'>
-          <div className="max-w-7xl px-3 mx-auto">
-            <Hero />
-          </div>
-        </section>
-        <section className='py-9'>
-          <div className="max-w-7xl px-3 mx-auto">
-            <Stats />
-          </div>
-        </section>
-        <section className='py-9'>
-          <div className="max-w-7xl px-3 mx-auto">
-            <Business />
-          </div>
-        </section>
-        <section className='py-9'>
-          <div className="max-w-7xl px-3 mx-auto">
-            <Billing />
-          </div>
-        </section>
-        <section className='py-9'>
-          <div className="max-w-7xl px-3 mx-auto">
-            <CardDeal />
-          </div>
-        </section>
-        <section className='py-9'>
-          <div className="max-w-7xl px-3 mx-auto">
-            <Testimonials />
-            <CTA />
-          </div>
-        </section>
-      </main>
-      <Footer />
-      {/* <Clients /> */}
-    </div>
+    <main>
+      <section className="py-9">
+        <div className="max-w-7xl px-3 mx-auto">
+          <Hero />
+        </div>
+      </section>
+      <section className="py-9">
+        <div className="max-w-7xl px-3 mx-auto">
+          <Stats />
+        </div>
+      </section>
+      <section className="py-9">
+        <div className="max-w-7xl px-3 mx-auto">
+          <Business />
+        </div>
+      </section>
+      <section className="py-9">
+        <div className="max-w-7xl px-3 mx-auto">
+          <Billing />
+        </div>
+      </section>
+      <section className="py-9">
+        <div className="max-w-7xl px-3 mx-auto">
+          <CardDeal />
+        </div>
+      </section>
+      <section className="py-9">
+        <div className="max-w-7xl px-3 mx-auto">
+          <Testimonials />
+          <CTA />
+        </div>
+      </section>
+    </main>
   );
 };
 
