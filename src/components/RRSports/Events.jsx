@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import Navbar from "./Navbar";
-// import Footer from "../containers/Footer";
-import { motion } from "framer-motion";
 import styles from "../../style";
 import { FaCalendar, FaClock, FaMapMarkerAlt, FaExpand } from "react-icons/fa";
 import { getEventsByProject } from "../../api/eventsService";
@@ -12,24 +9,6 @@ const Events = () => {
   const [error, setError] = useState(null);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [projectName, setProjectName] = useState("");
-
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.9, y: 20 },
-    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5 } },
-  };
 
   // Fetch project name & events
   useEffect(() => {
@@ -76,16 +55,11 @@ const Events = () => {
   // Skeleton Loader
   const EventSkeletonLoader = () => (
     <div className="max-w-7xl mx-auto">
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={staggerContainer}
+      <div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
       >
         {[...Array(6)].map((_, index) => (
-          <motion.div
-            key={index}
-            variants={cardVariants}
+          <div
             className="bg-gray-800/50 rounded-2xl shadow-xl overflow-hidden border border-gray-700/50"
           >
             <div className="h-48 bg-gradient-to-r from-gray-700 to-gray-600 animate-pulse"></div>
@@ -97,9 +71,9 @@ const Events = () => {
                 <div className="h-4 bg-gray-700 rounded-lg animate-pulse w-1/3"></div>
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 
@@ -114,10 +88,7 @@ const Events = () => {
       {/* Main Content */}
       <section className="flex-1 py-16 px-4 sm:px-6 lg:px-8 mt-8">
         {/* Header */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
+        <div
           className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600/20 to-pink-600/20 px-6 py-3 rounded-2xl border border-purple-500/30 mb-4">
@@ -133,16 +104,13 @@ const Events = () => {
             Discover our latest events, conferences, and gatherings. Join us in
             shaping the future together.
           </p>
-        </motion.div>
+        </div>
 
         {/* Events Grid */}
         {loading ? (
           <EventSkeletonLoader />
         ) : error ? (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeIn}
+          <div
             className="max-w-2xl mx-auto text-center"
           >
             <div className="bg-red-900/20 border border-red-500/30 rounded-2xl p-8">
@@ -152,12 +120,9 @@ const Events = () => {
               </h3>
               <p className="text-red-200">{error}</p>
             </div>
-          </motion.div>
+          </div>
         ) : events.length === 0 ? (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeIn}
+          <div
             className="max-w-2xl mx-auto text-center"
           >
             <div className="bg-gray-800/50 border border-gray-700/50 rounded-2xl p-12">
@@ -169,24 +134,15 @@ const Events = () => {
                 Check back later for upcoming events and activities.
               </p>
             </div>
-          </motion.div>
+          </div>
         ) : (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
+          <div
             className="max-w-7xl mx-auto"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {events.map((event) => (
-                <motion.div
+                <div
                   key={event.id}
-                  variants={cardVariants}
-                  whileHover={{
-                    scale: 1.03,
-                    y: -5,
-                    transition: { duration: 0.3 },
-                  }}
                   className="group relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-2xl shadow-2xl overflow-hidden border border-gray-700/50 backdrop-blur-sm hover:border-purple-500/30 transition-all duration-300 cursor-pointer"
                   onClick={() => setSelectedEvent(event)}
                 >
@@ -239,25 +195,20 @@ const Events = () => {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         )}
       </section>
 
       {/* Event Modal */}
       {selectedEvent && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+        <div
           className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           onClick={() => setSelectedEvent(null)}
         >
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
+          <div
             className="bg-gray-900 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
@@ -316,8 +267,8 @@ const Events = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       )}
     </div>
   );

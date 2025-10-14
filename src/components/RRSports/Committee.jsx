@@ -1,46 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaCheckCircle, FaUser, FaBuilding } from "react-icons/fa";
+import { FaCheckCircle, FaUser } from "react-icons/fa";
 import { getManagements } from "../../api/managementService";
 
 const Committee = () => {
   const [managements, setManagements] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [projectName, setProjectName] = useState("");
-
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.9, y: 20 },
-    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5 } },
-  };
 
   // Fetch project name from localStorage and management data from API
   useEffect(() => {
     const fetchProjectAndManagements = async () => {
       try {
-        // Get project name from localStorage
-        // const project = localStorage.getItem("selectedProject");
-        // if (project) {
-        //   const projectData = JSON.parse(project);
-        //   setProjectName(projectData.name || projectData.projectName || "Current Project");
-        // }
-
-        // Fetch management data
         const data = await getManagements();
         setManagements(data);
       } catch (err) {
@@ -57,13 +28,11 @@ const Committee = () => {
   const SkeletonLoader = () => (
     <div className="max-w-7xl mx-auto">
       <div
-        variants={staggerContainer}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
       >
         {[...Array(8)].map((_, index) => (
           <div
             key={index}
-            variants={cardVariants}
             className="bg-gray-800/50 rounded-2xl shadow-xl overflow-hidden flex flex-col items-center p-8 border border-gray-700/50"
           >
             {/* Image Skeleton */}
@@ -119,7 +88,7 @@ const Committee = () => {
       </section>
 
       {/* Management Cards Grid */}
-      <section className="py-5">
+      {/* <section className="py-5">
         <div className="max-w-7xl mx-auto px-3">
           {loading ? (
             <SkeletonLoader />
@@ -150,10 +119,8 @@ const Committee = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 {managements.map((mng, index) => (
                   <div className="group relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-2xl shadow-2xl overflow-hidden flex flex-col items-center p-8 border border-gray-700/50 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-300">
-                    {/* Background Glow Effect */}
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-                    {/* Image Container */}
                     <div className="relative z-10 mb-6">
                       <div className="relative">
                         {mng.managementImage ? (
@@ -173,7 +140,6 @@ const Committee = () => {
                       </div>
                     </div>
 
-                    {/* Content */}
                     <div className="relative z-10 text-center">
                       <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-300 transition-colors duration-300">
                         {mng.managementName}
@@ -189,7 +155,6 @@ const Committee = () => {
                         </p>
                       )}
 
-                      {/* Additional Info */}
                       <div className="flex justify-center gap-4 text-xs text-gray-500">
                         {mng.experience && (
                           <span>{mng.experience} years exp</span>
@@ -198,7 +163,6 @@ const Committee = () => {
                       </div>
                     </div>
 
-                    {/* Hover Effect Border */}
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/0 via-blue-500/10 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
                 ))}
@@ -206,7 +170,7 @@ const Committee = () => {
             </div>
           )}
         </div>
-      </section>
+      </section> */}
     </>
   );
 };
