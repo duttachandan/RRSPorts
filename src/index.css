@@ -201,9 +201,13 @@ h1 span {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background: url("./assets/NewAssets/AboutBg2.jpg") no-repeat center/cover;
+  background: url("./assets/NewAssets/Banner-img.jpg") no-repeat center/cover;
   position: relative;
-  filter: grayscale(1);
+  /* filter: grayscale(1); */
+}
+
+.about-banner h1 {
+  text-transform: uppercase;
 }
 
 .text-overlay {
@@ -311,7 +315,6 @@ h1 span {
   height: 1px;
   top: 0;
   left: 0;
-  /* opacity: 0; */
   background: linear-gradient(90deg, #ef4444, rgb(237, 128, 128), #d1d5db);
   transition: all 1s linear;
 }
@@ -323,7 +326,6 @@ h1 span {
 
 .primary-btn:hover::after {
   transform: scale(500);
-  /* opacity: 1; */
   height: 100%;
   border-radius: 60px;
 }
@@ -334,4 +336,41 @@ h1 span {
 
 .get-started-big:hover {
   box-shadow: 1px 1px 20px #01f6ff;
+}
+
+/* Bread Crumb */
+
+.breadCrumb {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 99;
+  margin-top: 20px;
+}
+
+.breadCrumb > li {
+  color: white;
+  font-size: 20px;
+}
+
+.breadCrumb > li > a:hover {
+  color: white;
+}
+
+.breadCrumb > li::after {
+  content: "/";
+  color: white;
+  padding: 0 8px;
+}
+
+.breadCrumb > li:last-child {
+  font-weight: bold;
+  color: #ef4444 !important;
+  font-size: 24px;
+}
+
+.breadCrumb > li:last-child::after {
+  display: none;
 }

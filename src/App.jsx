@@ -15,13 +15,7 @@ import {
 } from "./containers";
 
 const App = () => {
-  useEffect(() => {
-    Aos.init({
-      duration: 1000, // animation duration in ms
-      once: false, // animate only once when scrolled into view
-      offset: 100, // offset before triggering animation
-    });
-  }, []);
+  
   return (
     <main>
       <section className="py-9">

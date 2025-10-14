@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import Navbar from "./Navbar";
-// import Footer from "../containers/Footer";
-// import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css"; // very important
 
@@ -254,7 +251,9 @@ const About = () => {
           <div data-aos="fade-up" className="text-center text-overlay">
             <h1
               className="text-3xl sm:text-5xl lg:text-6xl 
-              font-extrabold text-white mb-4"
+              font-extrabold bg-gradient-to-r from-white 
+              via-red-400 to-red-600 bg-clip-text 
+              text-transparent mb-4"
             >
               About {selectedProject?.projectName || "Red Riders"}
             </h1>
@@ -262,6 +261,14 @@ const About = () => {
               Excellence in Sports • Community Development • Professional
               Management
             </p>
+            <ul className="breadCrumb">
+              <li>
+                <Link className="text-gray-300" to="/">
+                  Home
+                </Link>
+              </li>
+              <li>About</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -488,10 +495,10 @@ const About = () => {
             </div>
 
             <div className="space-y-8">
-              <div className="bg-gradient-to-r from-[#4B4D4E] to-transparent p-8 rounded-2xl">
+              <div className="bg-gradient-to-r from-[#4B4D4E] to-transparent p-4 md:p-8 rounded-2xl">
                 <div className="flex items-center mb-6">
                   <div>
-                    <h4 className="text-2xl font-bold text-white flex items-center">
+                    <h4 className="text-2xl text-white flex items-center">
                       <div className="background-gray rounded-full p-3 mr-4">
                         <FaTrophy className="text-2xl text-gray-900 icon-bg" />
                       </div>

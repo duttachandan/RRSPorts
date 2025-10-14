@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import styles from "../style";
-import Navbar from "./Navbar";
-import Footer from "../containers/Footer";
+import { Link } from "react-router-dom";
+// import Navbar from "./Navbar";
+// import Footer from "../containers/Footer";
 import {
   FaPlay,
   FaPause,
@@ -24,11 +23,6 @@ const LiveStream = () => {
     title: "Red Riders vs Kolkata Knights - Live Match",
     description: "Premier League Cricket Match - Semi Finals",
     streamUrl: "https://www.youtube.com/embed/jfKfPfyJRdk?enablejsapi=1",
-  };
-
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
   // Load YouTube API script
@@ -75,42 +69,48 @@ const LiveStream = () => {
   };
 
   return (
-    <div className="min-h-screen text-white bg-gradient-to-br from-gray-900 via-black to-gray-900">
-        <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-        <div className={`${styles.boxWidth}`}>
-          <Navbar />
-        </div>
-      </div>
-      <section className="py-16 px-4 sm:px-6 lg:px-8 mt-8">
-        <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeIn}
-            className="text-center mb-12"
-          >
+    <>
+      <section className="py-3 about-banner">
+        <div className="max-w-7xl mx-auto px-3">
+          <div className="text-center mb-12 text-overlay">
             <div className="inline-flex items-center gap-3 bg-gradient-to-r from-red-600/20 to-red-800/20 px-6 py-3 rounded-2xl border border-red-500/30 mb-4">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-                <span className="text-red-300 font-medium text-lg">LIVE NOW</span>
+                <span className="text-red-300 font-medium text-lg">
+                  LIVE NOW
+                </span>
               </div>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent mt-4">
+            <h1
+              className="text-4xl md:text-5xl
+             font-bold mt-4 bg-gradient-to-r from-white 
+              via-red-400 to-red-600 bg-clip-text 
+              text-transparent "
+            >
               Live Stream
             </h1>
             <p className="text-gray-400 text-lg mt-4 max-w-2xl mx-auto">
-              Watch live matches, training sessions, and exclusive club events in real-time
+              Watch live matches, training sessions, and exclusive club events
+              in real-time
             </p>
-          </motion.div>
+            <ul className="breadCrumb">
+              <li>
+                <Link className="text-gray-300" to="/">
+                  Home
+                </Link>
+              </li>
+              <li>Live Stream</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 sm:px-6 lg:px-8 mt-8">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
 
           {/* Layout */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeIn}
-            className="grid grid-cols-1 lg:grid-cols-4 gap-8"
-          >
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Player */}
             <div className="lg:col-span-3">
               <div className="relative bg-gray-800/50 rounded-2xl shadow-2xl overflow-hidden border border-gray-700/50 backdrop-blur-sm">
@@ -126,7 +126,10 @@ const LiveStream = () => {
                 </div>
 
                 {/* Video */}
-                <div className="relative aspect-video bg-black" ref={iframeContainerRef}>
+                <div
+                  className="relative aspect-video bg-black"
+                  ref={iframeContainerRef}
+                >
                   <iframe
                     id="yt-player"
                     src={streamData.streamUrl}
@@ -175,13 +178,16 @@ const LiveStream = () => {
                 {/* Match Details */}
                 <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <h3 className="text-lg font-semibold mb-3">Match Details</h3>
+                    <h3 className="text-lg font-semibold mb-3">
+                      Match Details
+                    </h3>
                     <div className="space-y-2 text-gray-300">
                       <div className="flex items-center gap-3">
                         <FaCalendar className="text-red-400" /> March 15, 2024
                       </div>
                       <div className="flex items-center gap-3">
-                        <FaClock className="text-red-400" /> 2:30 PM – 6:30 PM IST
+                        <FaClock className="text-red-400" /> 2:30 PM – 6:30 PM
+                        IST
                       </div>
                     </div>
                   </div>
@@ -209,15 +215,24 @@ const LiveStream = () => {
 
             {/* Sidebar */}
             <div className="space-y-6">
-              <motion.div
-                variants={fadeIn}
-                className="bg-gray-800/50 rounded-2xl p-6 shadow-xl border border-gray-700/50 backdrop-blur-sm"
-              >
+              <div className="bg-gray-800/50 rounded-2xl p-6 shadow-xl border border-gray-700/50 backdrop-blur-sm">
                 <h3 className="text-xl font-bold mb-4">Upcoming Streams</h3>
                 {[
-                  { title: "Training Session", date: "Tomorrow, 6 AM", type: "Training" },
-                  { title: "Junior League Finals", date: "Mar 18, 3 PM", type: "Tournament" },
-                  { title: "Coaching Workshop", date: "Mar 20, 10 AM", type: "Workshop" },
+                  {
+                    title: "Training Session",
+                    date: "Tomorrow, 6 AM",
+                    type: "Training",
+                  },
+                  {
+                    title: "Junior League Finals",
+                    date: "Mar 18, 3 PM",
+                    type: "Tournament",
+                  },
+                  {
+                    title: "Coaching Workshop",
+                    date: "Mar 20, 10 AM",
+                    type: "Workshop",
+                  },
                 ].map((stream, i) => (
                   <div
                     key={i}
@@ -228,7 +243,9 @@ const LiveStream = () => {
                         <FaCalendar className="text-red-400 text-sm" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-sm">{stream.title}</h4>
+                        <h4 className="font-semibold text-sm">
+                          {stream.title}
+                        </h4>
                         <p className="text-gray-400 text-xs">{stream.date}</p>
                         <span className="inline-block mt-1 px-2 py-1 bg-gray-600/50 rounded text-xs text-gray-300">
                           {stream.type}
@@ -237,20 +254,12 @@ const LiveStream = () => {
                     </div>
                   </div>
                 ))}
-              </motion.div>
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
-
-      <div className="mt-10">
-        <footer className="bg-gray-900/80 backdrop-blur-sm border-t border-gray-800 py-12 px-4 sm:px-6 lg:px-8">
-          <div className="container mx-auto">
-            <Footer />
-          </div>
-        </footer>
-      </div>
-    </div>
+    </>
   );
 };
 

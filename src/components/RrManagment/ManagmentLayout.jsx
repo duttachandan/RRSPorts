@@ -5,11 +5,11 @@ import ManagmentNavbar from "./ManagmentNavbar";
 
 const ManagmentLayout = () => {
   return (
-    <>
+    <div className="bg-all w-full overflow-hidden">
       <ManagmentNavbar />
       <Outlet />
       <Footer />
-    </>
+    </div>
   );
 };
 

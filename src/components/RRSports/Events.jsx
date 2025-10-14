@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./Navbar";
-import Footer from "../containers/Footer";
+// import Navbar from "./Navbar";
+// import Footer from "../containers/Footer";
 import { motion } from "framer-motion";
-import styles from "../style";
-import {
-  FaCalendar,
-  FaClock,
-  FaMapMarkerAlt,
-  FaExpand,
-} from "react-icons/fa";
-import { getEventsByProject } from "../api/eventsService";
+import styles from "../../style";
+import { FaCalendar, FaClock, FaMapMarkerAlt, FaExpand } from "react-icons/fa";
+import { getEventsByProject } from "../../api/eventsService";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
@@ -48,7 +43,9 @@ const Events = () => {
         }
 
         const projectData = JSON.parse(project);
-        setProjectName(projectData.name || projectData.projectName || "Our Project");
+        setProjectName(
+          projectData.name || projectData.projectName || "Our Project"
+        );
 
         const projectId = projectData.id;
         const eventsData = await getEventsByProject(projectId);
@@ -114,13 +111,6 @@ const Events = () => {
 
   return (
     <div className="min-h-screen flex flex-col text-white bg-gradient-to-br from-gray-900 via-black to-gray-900">
-      {/* Navbar */}
-      <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-        <div className={`${styles.boxWidth}`}>
-          <Navbar />
-        </div>
-      </div>
-
       {/* Main Content */}
       <section className="flex-1 py-16 px-4 sm:px-6 lg:px-8 mt-8">
         {/* Header */}
@@ -329,15 +319,6 @@ const Events = () => {
           </motion.div>
         </motion.div>
       )}
-
-      {/* Footer */}
-      <div className="mt-16">
-        <footer className="bg-gray-900/80 backdrop-blur-sm border-t border-gray-800 py-12 px-4 sm:px-6 lg:px-8">
-          <div className="container mx-auto">
-            <Footer />
-          </div>
-        </footer>
-      </div>
     </div>
   );
 };

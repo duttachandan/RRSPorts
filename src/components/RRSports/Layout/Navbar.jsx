@@ -1,16 +1,66 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { close, menu } from "../../../assets";
+import { ChevronDown } from "lucide-react";
+import { getAllProjects } from "../../../api/projectService";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const [toggle, setToggle] = useState(false);
+  const [projects, setProjects] = useState([]);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const data = await getAllProjects();
+        if (data && data.length > 0) {
+          setProjects(data);
+          setSelectedProject(data[0]);
+        } else {
+          toast.error("No projects found.");
+        }
+      } catch (err) {
+        console.error(err);
+        toast.error("Failed to load projects.");
+      }
+    };
+    fetchProjects();
+  }, []);
+
+  const handleProjectSelect = (proj) => {
+    setSelectedProject(proj);
+    console.log(proj);
+    if (proj.projectName === "Red Riders Sports Club") {
+      navigate(`/`);
+    } else {
+      navigate(
+        `/${proj.projectName.split(" ").slice(2).join("-").toLowerCase()}`
+      );
+    }
+    localStorage.setItem("selectedProject", JSON.stringify(proj));
+    setDropdownOpen(false);
+    toast.success(`Switched to ${proj.projectName}`);
+  };
+
+  const handleNavClick = (id) => {
+    console.log(id);
+    navigate(`/${id}`);
+  };
+
   let navLinks = [
     { id: "", title: "Home" },
     { id: "about", title: "About" },
-    { id: "management", title: "Management" },
+    { id: "committee", title: "Committee" },
     { id: "members", title: "Members" },
-    { id: "event", title: "Event" },
+    { id: "events", title: "Event" },
     { id: "contacts", title: "Contacts" },
     { id: "live-stream", title: "Live Stream" },
     { id: "live-scoring", title: "Live Scoring" },
   ];
+
   return (
     <header className="py-2">
       <div className="max-w-7xl mx-auto px-3">

@@ -37,11 +37,11 @@ const Management = () => {
     const fetchProjectAndManagements = async () => {
       try {
         // Get project name from localStorage
-        const project = localStorage.getItem("selectedProject");
-        if (project) {
-          const projectData = JSON.parse(project);
-          setProjectName(projectData.name || projectData.projectName || "Current Project");
-        }
+        // const project = localStorage.getItem("selectedProject");
+        // if (project) {
+        //   const projectData = JSON.parse(project);
+        //   setProjectName(projectData.name || projectData.projectName || "Current Project");
+        // }
 
         // Fetch management data
         const data = await getManagements();

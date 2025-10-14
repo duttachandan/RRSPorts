@@ -41,10 +41,6 @@ const Navbar = () => {
     fetchProjects();
   }, []);
 
-  const handleNavClick = (id) => {
-    navigate(`/${id}`);
-  };
-
   const handleProjectSelect = (proj) => {
     setSelectedProject(proj);
     localStorage.setItem("selectedProject", JSON.stringify(proj));
