@@ -398,7 +398,7 @@ h1 span {
   color: white;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .mng-card:hover > .card-docs {
@@ -438,6 +438,10 @@ h1 span {
   overflow: hidden;
 }
 
+.mng-about-banner {
+  padding: 70px 0;
+}
+
 .banner-img {
   position: relative;
   width: 100%;
@@ -456,6 +460,10 @@ h1 span {
   50% {
     background-position: bottom;
   }
+}
+
+.about-card-transform {
+  transform: translate(-50%, -50%);
 }
 
 .banner-overlay {
@@ -486,6 +494,30 @@ h1 span {
   line-height: 1.5;
 }
 
+.sports-excellence {
+  background: url("https://tennisclub.themerex.net/wp-content/uploads/2023/03/home1-background2-copyright.jpg")
+    no-repeat center/cover;
+}
+
+.about-img > img,
+.main-about-img > img {
+  transition: all 0.5s linear;
+}
+.about-img:hover > img,
+.main-about-img:hover > img {
+  transform: scale(1.05);
+}
+
+.complex-banner-section {
+  background: url("./assets/NewAssets/AboutBg2.jpg") no-repeat center/cover;
+}
+
+.fancybox__container {
+  background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+
+
 /* Smooth fade for text */
 @keyframes fadeText {
   0% {
@@ -499,5 +531,12 @@ h1 span {
   100% {
     opacity: 0;
     transform: translate(-50%, -55%);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .about-card-transform {
+    transform: translate(0%, 0%);
+    left: 0;
   }
 }

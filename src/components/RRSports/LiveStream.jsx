@@ -12,6 +12,8 @@ import {
   FaCalendar,
   FaClock,
 } from "react-icons/fa";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
 
 const LiveStream = () => {
   const [isPlaying, setIsPlaying] = useState(true);
@@ -68,6 +70,34 @@ const LiveStream = () => {
     else if (iframe.msRequestFullscreen) iframe.msRequestFullscreen();
   };
 
+  const pastVideos = [
+    {
+      id: 1,
+      title: "Red Riders vs Thunder Kings",
+      url: "https://www.youtube.com/embed/Sagg08DrO5U",
+    },
+    {
+      id: 2,
+      title: "Training Highlights – March",
+      url: "https://www.youtube.com/embed/ysz5S6PUM-U",
+    },
+    {
+      id: 3,
+      title: "Friendly Match Recap",
+      url: "https://www.youtube.com/embed/LXb3EKWsInQ",
+    },
+    {
+      id: 4,
+      title: "Fitness Camp 2024",
+      url: "https://www.youtube.com/embed/aqz-KE-bpKQ",
+    },
+    {
+      id: 5,
+      title: "Coach’s Talk – Motivation",
+      url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    },
+  ];
+
   return (
     <>
       <section className="py-3 about-banner">
@@ -116,7 +146,7 @@ const LiveStream = () => {
               <div className="relative bg-gray-800/50 rounded-2xl shadow-2xl overflow-hidden border border-gray-700/50 backdrop-blur-sm">
                 <div className="p-6 border-b border-gray-700/50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                   <div>
-                    <h2 className="text-2xl font-bold">{streamData.title}</h2>
+                    <h2 className="text-2xl text-white">{streamData.title}</h2>
                     <p className="text-gray-400">{streamData.description}</p>
                   </div>
                   <div className="flex items-center gap-3 bg-red-600/20 px-3 py-2 rounded-lg border border-red-500/30">
@@ -178,9 +208,7 @@ const LiveStream = () => {
                 {/* Match Details */}
                 <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <h3 className="text-lg font-semibold mb-3">
-                      Match Details
-                    </h3>
+                    <h3 className="text-lg text-white mb-3">Match Details</h3>
                     <div className="space-y-2 text-gray-300">
                       <div className="flex items-center gap-3">
                         <FaCalendar className="text-red-400" /> March 15, 2024
@@ -192,20 +220,24 @@ const LiveStream = () => {
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold mb-3">Teams</h3>
+                    <h3 className="text-lg text-white font-semibold mb-3">
+                      Teams
+                    </h3>
                     <div className="flex items-center gap-6">
                       <div className="text-center">
-                        <div className="w-12 h-12 bg-gradient-to-br from-red-600 to-red-800 rounded-full flex items-center justify-center font-bold">
+                        <div className="w-12 text-white h-12 bg-gradient-to-br from-red-600 to-red-800 rounded-full flex items-center justify-center font-bold">
                           RR
                         </div>
-                        <p className="text-sm mt-1">Red Riders</p>
+                        <p className="text-sm mt-1 text-white">Red Riders</p>
                       </div>
                       <div className="text-gray-400 text-lg font-bold">VS</div>
                       <div className="text-center">
-                        <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center font-bold">
+                        <div className="w-12 text-white h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center font-bold">
                           KK
                         </div>
-                        <p className="text-sm mt-1">Kolkata Knights</p>
+                        <p className="text-sm mt-1 text-white">
+                          Kolkata Knights
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -215,8 +247,8 @@ const LiveStream = () => {
 
             {/* Sidebar */}
             <div className="space-y-6">
-              <div className="bg-gray-800/50 rounded-2xl p-6 shadow-xl border border-gray-700/50 backdrop-blur-sm">
-                <h3 className="text-xl font-bold mb-4">Upcoming Streams</h3>
+              <div className="  rounded-2xl p-6 shadow-xl border border-gray-700/50 backdrop-blur-sm">
+                <h3 className="text-xl mb-4 text-white">Upcoming Streams</h3>
                 {[
                   {
                     title: "Training Session",
@@ -243,9 +275,7 @@ const LiveStream = () => {
                         <FaCalendar className="text-red-400 text-sm" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-sm">
-                          {stream.title}
-                        </h4>
+                        <h4 className="text-white text-sm">{stream.title}</h4>
                         <p className="text-gray-400 text-xs">{stream.date}</p>
                         <span className="inline-block mt-1 px-2 py-1 bg-gray-600/50 rounded text-xs text-gray-300">
                           {stream.type}
@@ -257,6 +287,60 @@ const LiveStream = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ---- New Section: Already Happened Live Videos ---- */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2
+            className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white 
+            via-red-400 to-red-600 bg-clip-text text-transparent mb-8"
+          >
+            Already Happened Live Videos
+          </h2>
+
+          <Splide
+            options={{
+              type: "loop",
+              perPage: 4,
+              gap: "1.5rem",
+              autoplay: true,
+              pauseOnHover: false,
+              pagination: false,
+              arrows: true,
+              breakpoints: {
+                1280: { perPage: 3 },
+                1024: { perPage: 2 },
+                640: { perPage: 1 },
+              },
+            }}
+          >
+            {pastVideos.map((video) => (
+              <SplideSlide key={video.id}>
+                <div className="bg-gray-800/50 rounded-2xl overflow-hidden border border-gray-700/40 shadow-xl hover:shadow-red-700/30 transition-all duration-300">
+                  <div className="aspect-video">
+                    <iframe
+                      src={video.url}
+                      title={video.title}
+                      className="w-full h-full"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                  <div className="p-4 text-left">
+                    <h3 className="text-lg font-semibold text-white">
+                      {video.title}
+                    </h3>
+                    <p className="text-gray-400 text-sm mt-1">
+                      Watch the full replay of this exciting match.
+                    </p>
+                  </div>
+                </div>
+              </SplideSlide>
+            ))}
+          </Splide>
         </div>
       </section>
     </>

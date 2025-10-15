@@ -21,6 +21,7 @@ import RrManagment from "./components/RrManagment/RrManagment";
 import Gallery from "./components/Gallery";
 import RrContacts from "./components/RrManagment/RrContacts";
 import OurClients from "./components/OurClients";
+import RrAbout from "./components/RrManagment/RrAbout";
 
 // RR Complex Section
 
@@ -63,6 +64,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path="event" element={<Gallery />} />
             <Route path="contacts" element={<RrContacts />} />
             <Route path="our-clients" element={<OurClients />} />
+            <Route path="about" element={<RrAbout />} />
           </Route>
 
           {/* RR Sports Complex Routes */}

@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
-import Aos from "aos";
 import "aos/dist/aos.css"; // very important
-import styles from "./style";
 import { Hero, Navbar } from "./components";
 import {
   Stats,
