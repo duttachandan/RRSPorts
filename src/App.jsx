@@ -9,9 +9,7 @@ import {
   Billing,
   CardDeal,
   Testimonials,
-  Clients,
   CTA,
-  Footer,
 } from "./containers";
 
 const App = () => {

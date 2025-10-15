@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "./Navbar";
-import Footer from "../containers/Footer";
 import { motion } from "framer-motion";
-import styles from "../style";
 import {
   FaExpand,
   FaTimes,
@@ -21,108 +18,106 @@ const Gallery = () => {
   const galleryItems = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image:
+        "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
       title: "Team Collaboration",
       category: "team",
       description: "Our team working together on innovative solutions",
-      date: "2024-01-15"
+      date: "2024-01-15",
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image:
+        "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
       title: "Project Launch",
       category: "events",
       description: "Successful launch of our flagship project",
-      date: "2024-02-20"
+      date: "2024-02-20",
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image:
+        "https://images.unsplash.com/photo-1513635625218-6956bc843133?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNwb3J0cyUyMHRlYW18ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
       title: "Data Analytics",
-      category: "work",
+      category: "team",
       description: "Advanced data analytics and insights dashboard",
-      date: "2024-01-30"
+      date: "2024-01-30",
     },
     {
       id: 4,
-      image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image:
+        "https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
       title: "Office Environment",
-      category: "office",
+      category: "events",
       description: "Our modern and collaborative workspace",
-      date: "2024-03-10"
+      date: "2024-03-10",
     },
     {
       id: 5,
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
       title: "Client Meeting",
-      category: "clients",
+      category: "team",
       description: "Strategic discussion with our valued partners",
-      date: "2024-02-05"
+      date: "2024-02-05",
     },
     {
       id: 6,
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image:
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
       title: "Tech Conference",
       category: "events",
       description: "Representing at the annual technology summit",
-      date: "2024-03-18"
+      date: "2024-03-18",
     },
     {
       id: 7,
-      image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image:
+        "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
       title: "Team Building",
       category: "team",
       description: "Quarterly team building activities",
-      date: "2024-01-25"
+      date: "2024-01-25",
     },
     {
       id: 8,
-      image: "https://images.unsplash.com/photo-1565688534245-05d6dafa6f6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image:
+        "https://plus.unsplash.com/premium_photo-1675364947294-913a0f1f7ff1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3BvcnRzJTIwdGVhbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
       title: "Product Development",
-      category: "work",
+      category: "events",
       description: "Behind the scenes of our development process",
-      date: "2024-02-28"
+      date: "2024-02-28",
     },
     {
       id: 9,
-      image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      image:
+        "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
       title: "Innovation Lab",
-      category: "office",
+      category: "team",
       description: "Our state-of-the-art innovation laboratory",
-      date: "2024-03-05"
-    }
+      date: "2024-03-05",
+    },
   ];
 
   const categories = [
     { id: "all", name: "All Photos", count: galleryItems.length },
-    { id: "team", name: "Team", count: galleryItems.filter(item => item.category === "team").length },
-    { id: "events", name: "Events", count: galleryItems.filter(item => item.category === "events").length },
-    { id: "work", name: "Work", count: galleryItems.filter(item => item.category === "work").length },
-    { id: "office", name: "Office", count: galleryItems.filter(item => item.category === "office").length },
-    { id: "clients", name: "Clients", count: galleryItems.filter(item => item.category === "clients").length },
+    {
+      id: "team",
+      name: "Team",
+      count: galleryItems.filter((item) => item.category === "team").length,
+    },
+    {
+      id: "events",
+      name: "Events",
+      count: galleryItems.filter((item) => item.category === "events").length,
+    },
   ];
 
-  const filteredItems = activeFilter === "all" 
-    ? galleryItems 
-    : galleryItems.filter(item => item.category === activeFilter);
+  const filteredItems =
+    activeFilter === "all"
+      ? galleryItems
+      : galleryItems.filter((item) => item.category === activeFilter);
 
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.9, y: 20 },
-    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5 } },
-  };
 
   const openImage = (item, index) => {
     setSelectedImage(item);
@@ -134,13 +129,15 @@ const Gallery = () => {
   };
 
   const goToPrevious = () => {
-    const newIndex = currentIndex === 0 ? filteredItems.length - 1 : currentIndex - 1;
+    const newIndex =
+      currentIndex === 0 ? filteredItems.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
     setSelectedImage(filteredItems[newIndex]);
   };
 
   const goToNext = () => {
-    const newIndex = currentIndex === filteredItems.length - 1 ? 0 : currentIndex + 1;
+    const newIndex =
+      currentIndex === filteredItems.length - 1 ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
     setSelectedImage(filteredItems[newIndex]);
   };
@@ -152,45 +149,32 @@ const Gallery = () => {
   };
 
   // Skeleton Loader
-  const GallerySkeletonLoader = () => (
-    <div className="max-w-7xl mx-auto">
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={staggerContainer}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-      >
-        {[...Array(9)].map((_, index) => (
-          <motion.div
-            key={index}
-            variants={cardVariants}
-            className="bg-gray-800/50 rounded-2xl shadow-xl overflow-hidden border border-gray-700/50 aspect-square"
-          >
-            <div className="h-full bg-gradient-to-r from-gray-700 to-gray-600 animate-pulse"></div>
-          </motion.div>
-        ))}
-      </motion.div>
-    </div>
-  );
+  // const GallerySkeletonLoader = () => (
+  //   <div className="max-w-7xl mx-auto">
+  //     <motion.div
+  //       initial="hidden"
+  //       animate="visible"
+  //       variants={staggerContainer}
+  //       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+  //     >
+  //       {[...Array(9)].map((_, index) => (
+  //         <motion.div
+  //           key={index}
+  //           variants={cardVariants}
+  //           className="bg-gray-800/50 rounded-2xl shadow-xl overflow-hidden border border-gray-700/50 aspect-square"
+  //         >
+  //           <div className="h-full bg-gradient-to-r from-gray-700 to-gray-600 animate-pulse"></div>
+  //         </motion.div>
+  //       ))}
+  //     </motion.div>
+  //   </div>
+  // );
 
   return (
-    <div className="min-h-screen flex flex-col text-white bg-gradient-to-br from-gray-900 via-black to-gray-900">
-      {/* Navbar */}
-      <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-        <div className={`${styles.boxWidth}`}>
-          <Navbar />
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <section className="flex-1 py-16 px-4 sm:px-6 lg:px-8 mt-8">
+    <>
+      <div className="flex-1 py-32 px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-          className="text-center mb-12"
-        >
+        <div className="text-center mb-12">
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-green-600/20 to-cyan-600/20 px-6 py-3 rounded-2xl border border-green-500/30 mb-4">
             <FaImage className="text-green-400 text-xl" />
             <span className="text-green-300 font-medium text-lg">
@@ -201,18 +185,14 @@ const Gallery = () => {
             Red Riders Gallery
           </h1>
           <p className="text-gray-400 text-lg mt-4 max-w-2xl mx-auto">
-            Explore our journey through moments of innovation, collaboration, and success. 
-            Each image tells a story of our growth and achievements.
+            Explore our journey through moments of innovation, collaboration,
+            and success. Each image tells a story of our growth and
+            achievements.
           </p>
-        </motion.div>
+        </div>
 
         {/* Filter Tabs */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-          className="max-w-4xl mx-auto mb-8"
-        >
+        <div className="max-w-4xl mx-auto mb-8">
           <div className="flex flex-wrap justify-center gap-3">
             {categories.map((category) => (
               <button
@@ -232,24 +212,14 @@ const Gallery = () => {
               </button>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Gallery Grid */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={staggerContainer}
-          className="max-w-7xl mx-auto"
-        >
+        <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredItems.map((item, index) => (
-              <motion.div
+              <div
                 key={item.id}
-                variants={cardVariants}
-                whileHover={{
-                  scale: 1.03,
-                  transition: { duration: 0.3 },
-                }}
                 className="group relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-2xl shadow-2xl overflow-hidden border border-gray-700/50 backdrop-blur-sm hover:border-green-500/30 transition-all duration-300 cursor-pointer aspect-square"
                 onClick={() => openImage(item, index)}
               >
@@ -263,7 +233,8 @@ const Gallery = () => {
 
                   <div className="absolute top-4 left-4">
                     <span className="bg-green-600/90 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
-                      {item.category.charAt(0).toUpperCase() + item.category.slice(1)}
+                      {item.category.charAt(0).toUpperCase() +
+                        item.category.slice(1)}
                     </span>
                   </div>
 
@@ -273,7 +244,11 @@ const Gallery = () => {
                     </div>
                   </div>
 
-                  <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  <div 
+                  className="absolute bottom-[-100%] left-0 right-0 
+                  p-4 py-6 flex justify-end flex-col
+                  transform translate-y-4 group-hover:bottom-0
+                  transition-transform duration-300">
                     <h3 className="text-white font-bold text-lg mb-1 line-clamp-1">
                       {item.title}
                     </h3>
@@ -285,38 +260,30 @@ const Gallery = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Empty State */}
         {filteredItems.length === 0 && (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeIn}
-            className="max-w-2xl mx-auto text-center mt-12"
-          >
+          <div className="max-w-2xl mx-auto text-center mt-12">
             <div className="bg-gray-800/50 border border-gray-700/50 rounded-2xl p-12">
               <FaImage className="text-gray-500 text-6xl mx-auto mb-4" />
               <h3 className="text-2xl font-semibold text-gray-300 mb-2">
                 No Images Found
               </h3>
               <p className="text-gray-400">
-                No gallery items match the selected filter. Try choosing a different category.
+                No gallery items match the selected filter. Try choosing a
+                different category.
               </p>
             </div>
-          </motion.div>
+          </div>
         )}
-      </section>
-
+      </div>
       {/* Image Modal */}
       {selectedImage && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+        <div
           className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           onClick={closeImage}
         >
@@ -365,7 +332,8 @@ const Gallery = () => {
                 />
                 <div className="absolute bottom-4 left-4">
                   <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    {selectedImage.category.charAt(0).toUpperCase() + selectedImage.category.slice(1)}
+                    {selectedImage.category.charAt(0).toUpperCase() +
+                      selectedImage.category.slice(1)}
                   </span>
                 </div>
               </div>
@@ -389,7 +357,7 @@ const Gallery = () => {
                     Image {currentIndex + 1} of {filteredItems.length}
                   </span>
                   <button
-                    onClick={() => window.open(selectedImage.image, '_blank')}
+                    onClick={() => window.open(selectedImage.image, "_blank")}
                     className="flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors duration-200"
                   >
                     <FaExpand className="text-sm" />
@@ -399,18 +367,9 @@ const Gallery = () => {
               </div>
             </motion.div>
           </div>
-        </motion.div>
+        </div>
       )}
-
-      {/* Footer */}
-      <div className="mt-16">
-        <footer className="bg-gray-900/80 backdrop-blur-sm border-t border-gray-800 py-12 px-4 sm:px-6 lg:px-8">
-          <div className="container mx-auto">
-            <Footer />
-          </div>
-        </footer>
-      </div>
-    </div>
+    </>
   );
 };
 

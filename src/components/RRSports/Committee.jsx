@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaCheckCircle, FaUser } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 import { getManagements } from "../../api/managementService";
 
 const Committee = () => {
@@ -14,6 +14,7 @@ const Committee = () => {
       try {
         const data = await getManagements();
         setManagements(data);
+        console.log(data);
       } catch (err) {
         setError(err.message || "Failed to fetch managements");
       } finally {
@@ -27,9 +28,7 @@ const Committee = () => {
   // Skeleton Loader Component
   const SkeletonLoader = () => (
     <div className="max-w-7xl mx-auto">
-      <div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {[...Array(8)].map((_, index) => (
           <div
             key={index}
@@ -55,12 +54,6 @@ const Committee = () => {
       {/* Project Header */}
       <section className="about-banner">
         <div className="max-w-7xl mx-auto px-3">
-          {/* <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600/20 to-purple-600/20 px-6 py-3 rounded-2xl border border-blue-500/30 mb-4">
-          <FaBuilding className="text-blue-400 text-xl" />
-          <span className="text-blue-300 font-medium text-lg">
-            {projectName || "Management Team"}
-          </span>
-        </div> */}
           <div data-aos="fade-up" className="text-center text-overlay">
             <h1
               data-aos="fade-up"
@@ -84,6 +77,71 @@ const Committee = () => {
               <li>Committee</li>
             </ul>
           </div>
+        </div>
+      </section>
+
+      <section className="py-4">
+        <div className="max-w-7xl mx-auto px-3">
+          {loading ? (
+            <SkeletonLoader />
+          ) : error ? (
+            <div className="max-w-2xl mx-auto text-center">
+              <div
+                className="bg-red-900/20 border 
+              border-red-500/30 rounded-2xl p-8"
+              >
+                <div className="text-red-400 text-6xl mb-4">⚠️</div>
+                <h3 className="text-2xl font-semibold text-red-300 mb-2">
+                  Error Loading Data
+                </h3>
+                <p className="text-red-200">{error}</p>
+              </div>
+            </div>
+          ) : managements.length === 0 ? (
+            <div className="max-w-2xl mx-auto text-center">
+              <div
+                className="bg-gray-800/50 border 
+              border-gray-700/50 rounded-2xl p-12"
+              >
+                <FaUser className="text-gray-500 text-6xl mx-auto mb-4" />
+                <h3 className="text-2xl font-semibold text-gray-300 mb-2">
+                  No Management Found
+                </h3>
+                <p className="text-gray-400">
+                  There are no management members to display for this project.
+                </p>
+              </div>
+            </div>
+          ) : (
+            <div className="flex flex-wrap mx-[-15px]">
+              {managements.map((data, img) => {
+                return (
+                  <div className="w-[25%] mng-card-layout px-[15px]">
+                    <div className="mng-card rounded-lg relative">
+                      <div className="card-img">
+                        <img
+                          src={`data:image/png;base64,${data.managementImage}`}
+                          alt={data.managementName}
+                          className="w-[100%] h-[400px] object-cover"
+                        />
+                      </div>
+                      <div
+                        className="card-docs transition duration-100 
+                      absolute top-[100%]"
+                      >
+                        <h4 className="title4 text-2xl">{data.managementName}</h4>
+                        <p>
+                          {data.managmentDesignation
+                            ? data.managmentDesignation
+                            : "Data Analyst"}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
 

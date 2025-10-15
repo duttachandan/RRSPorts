@@ -18,6 +18,9 @@ import Contacts from "./components/Contacts";
 // RR Management Section
 import ManagmentLayout from "./components/RrManagment/ManagmentLayout";
 import RrManagment from "./components/RrManagment/RrManagment";
+import Gallery from "./components/Gallery";
+import RrContacts from "./components/RrManagment/RrContacts";
+import OurClients from "./components/OurClients";
 
 // RR Complex Section
 
@@ -33,8 +36,6 @@ import PrivecyPolicy from "./components/PrivecyPolicy";
 import TermsOfService from "./components/TermsOfService";
 import WhatIsCryptocurrency from "./components/WhatIsCryptocurrency";
 import Management from "./components/Management";
-import OurClients from "./components/OurClients";
-import Gallery from "./components/Gallery";
 import { Contact } from "lucide-react";
 import RRComplex from "./components/RRComplex/RRComplex";
 
@@ -59,6 +60,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           {/* RR Managment Routes */}
           <Route path="/management" element={<ManagmentLayout />}>
             <Route index element={<RrManagment />} />
+            <Route path="event" element={<Gallery />} />
+            <Route path="contacts" element={<RrContacts />} />
+            <Route path="our-clients" element={<OurClients />} />
           </Route>
 
           {/* RR Sports Complex Routes */}

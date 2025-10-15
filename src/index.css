@@ -374,3 +374,130 @@ h1 span {
 .breadCrumb > li:last-child::after {
   display: none;
 }
+
+/* Managment Card Section */
+
+.mng-card {
+  overflow: hidden;
+}
+
+.mng-card:hover > .card-img {
+  transform: scale(1.1);
+}
+
+.card-img {
+  transition: all 0.5s linear;
+}
+
+.card-docs {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #f06161, transparent);
+  opacity: 0;
+  padding: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.mng-card:hover > .card-docs {
+  top: 0;
+  opacity: 1;
+  transition: all 0.5s linear;
+}
+
+.banner-img {
+  height: 100vh;
+}
+
+.banner-img > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 992px) {
+  .mng-card-layout {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .mng-card-layout {
+    width: 100%;
+  }
+}
+
+/* RR Managment Pages */
+
+.mng-banner-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.banner-img {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 2s ease-in-out;
+  animation: zoomIn 30s linear infinite;
+}
+
+@keyframes zoomIn {
+  100%,
+  0% {
+    background-position: center;
+  }
+  50% {
+    background-position: bottom;
+  }
+}
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.banner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  animation: fadeText 2s ease-in-out;
+}
+
+.banner-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.banner-content p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Smooth fade for text */
+@keyframes fadeText {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -45%);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -55%);
+  }
+}

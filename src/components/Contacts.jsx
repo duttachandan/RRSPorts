@@ -1,8 +1,5 @@
-import React, { useState } from "react";
-import Navbar from "./Navbar";
-import Footer from "../containers/Footer";
-import { motion } from "framer-motion";
-import styles from "../style";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import {
   FaUsers,
   FaEnvelope,
@@ -19,6 +16,7 @@ import {
 } from "react-icons/fa";
 
 const Contacts = () => {
+  const location = useLocation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,25 +26,9 @@ const Contacts = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.9, y: 20 },
-    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5 } },
-  };
+  useEffect(() => {
+    console.log(location.pathname);
+  });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -106,34 +88,61 @@ const Contacts = () => {
     <>
       <section className="py-3 about-banner">
         <div className="max-w-7xl px-3 mx-auto">
-          <div className="text-overlay">
+          <div className="text-overlay" data-aos="fade-up">
             <div className="text-center mb-16">
-              <h1 className="text-4xl md:text-6xl font-bold 
+              <h1
+                className="text-4xl md:text-6xl font-bold 
               bg-gradient-to-r from-white 
               via-red-400 to-red-600 bg-clip-text 
-              text-transparent mb-6">
-                Get In Touch
+              text-transparent mb-6"
+              >
+                Contact Us
               </h1>
               <p className="text-gray-400 text-xl max-w-3xl mx-auto">
                 Connect with the Red Riders community. We're here to help you
                 become part of our vibrant sports family.
               </p>
+              <ul className="breadCrumb">
+                <li>
+                  <Link
+                    className="text-gray-300"
+                    to={
+                      location.pathname === "/management/contacts"
+                        ? "/management"
+                        : "/"
+                    }
+                  >
+                    {location.pathname === "/management/contacts"
+                      ? "Managment"
+                      : "Home"}
+                  </Link>
+                </li>
+                <li>Contact Us</li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
       <section className="flex-1 py-16 px-4 sm:px-6 lg:px-8 mt-8">
         <div className="max-w-7xl mx-auto">
+          <div data-aos="zoom-in" className="w-[100%]">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.473546693781!2d77.72388407404901!3d12.87724301694202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae12ad90ff9ce1%3A0x933d33738d6f75bc!2sRed%20Riders%20Gokarting-%20Gokarting%20in%20Bangalore.!5e0!3m2!1sen!2sin!4v1760505390914!5m2!1sen!2sin"
+              className="w-[100%] h-[300px] rounded-xl mb-6"
+              style={{ border: "0" }}
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Left Column - Contact Information */}
-            <div className="space-y-8">
+            <div data-aos="fade-right" className="space-y-8">
               {/* Community Directory Card */}
 
               {/* Contact Information Card */}
-              <div
-                variants={cardVariants}
-                className="group relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-2xl shadow-2xl overflow-hidden border border-gray-700/50 backdrop-blur-sm p-8 hover:border-red-500/30 transition-all duration-300"
-              >
+              <div className="group relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-2xl shadow-2xl overflow-hidden border border-gray-700/50 backdrop-blur-sm p-8 hover:border-red-500/30 transition-all duration-300">
                 <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                 <div className="relative z-10">
@@ -192,7 +201,7 @@ const Contacts = () => {
               </div>
 
               {/* Social Media Card */}
-              <div
+              {/* <div
                 variants={cardVariants}
                 className="group relative bg-gradient-to-br from-purple-900/20 to-pink-900/20 rounded-2xl shadow-2xl overflow-hidden border border-purple-500/30 backdrop-blur-sm p-8 hover:border-purple-400/50 transition-all duration-300"
               >
@@ -239,12 +248,12 @@ const Contacts = () => {
                     ))}
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             {/* Right Column - Contact Form */}
             <div
-              variants={cardVariants}
+              data-aos="fade-left"
               className="group relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-2xl shadow-2xl overflow-hidden border border-gray-700/50 backdrop-blur-sm p-8 hover:border-green-500/30 transition-all duration-300"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

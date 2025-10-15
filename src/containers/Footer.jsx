@@ -8,7 +8,7 @@ const Footer = () => (
       {/* Main Footer Content */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
         {/* Brand Section */}
-        <div data-aos="fade-right" className="flex flex-col">
+        <div className="flex flex-col">
           <div className="flex flex-col mb-6">
             <Link to="/" 
             className="font-bold footer-hdr text-3xl lg:text-4xl bg-gradient-to-r from-red-600 via-red-400 to-red-300 bg-clip-text text-transparent">
@@ -25,7 +25,7 @@ const Footer = () => (
         </div>
 
         {/* Contact Information */}
-        <div data-aos="fade-left" className="flex flex-col">
+        <div className="flex flex-col">
           <div className=" font-semibold text-xl text-white mb-6 pb-2 border-b border-red-500/30">
             Get in Touch
           </div>
@@ -63,7 +63,7 @@ const Footer = () => (
         </div>
 
         {/* Social Media & Quick Links */}
-        <div data-aos="fade-right" className="flex flex-col">
+        <div className="flex flex-col">
           <div className=" font-semibold text-xl text-white mb-6 pb-2 border-b border-red-500/30">
             Connect With Us
           </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import styles from "../../style";
 import { FaCalendar, FaClock, FaMapMarkerAlt, FaExpand } from "react-icons/fa";
 import { getEventsByProject } from "../../api/eventsService";
+import { Link } from "react-router-dom";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
@@ -55,13 +55,9 @@ const Events = () => {
   // Skeleton Loader
   const EventSkeletonLoader = () => (
     <div className="max-w-7xl mx-auto">
-      <div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-      >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {[...Array(6)].map((_, index) => (
-          <div
-            className="bg-gray-800/50 rounded-2xl shadow-xl overflow-hidden border border-gray-700/50"
-          >
+          <div className="bg-gray-800/50 rounded-2xl shadow-xl overflow-hidden border border-gray-700/50">
             <div className="h-48 bg-gradient-to-r from-gray-700 to-gray-600 animate-pulse"></div>
             <div className="p-6">
               <div className="h-6 bg-gray-700 rounded-lg mb-3 animate-pulse w-3/4"></div>
@@ -84,35 +80,48 @@ const Events = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col text-white bg-gradient-to-br from-gray-900 via-black to-gray-900">
+    <>
+      <section className="py-3 about-banner">
+        <div className="max-w-7xl mx-auto px-3 text-center">
+          <div className="text-overlay" data-aos="fade-up">
+            {/* <div className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600/20 to-pink-600/20 px-6 py-3 rounded-2xl border border-purple-500/30 mb-4">
+              <FaCalendar className="text-purple-400 text-xl" />
+              <span className="text-purple-300 font-medium text-lg">
+                {projectName || "Our Events"}
+              </span>
+            </div> */}
+            <h1
+              className="text-3xl sm:text-5xl lg:text-6xl 
+              font-extrabold bg-gradient-to-r from-white 
+              via-red-400 to-red-600 bg-clip-text 
+              text-transparent mb-4"
+            >
+              Events
+            </h1>
+            <p className="text-gray-400 text-lg mt-4 max-w-2xl mx-auto">
+              Discover our latest events, conferences, and gatherings. Join us
+              in shaping the future together.
+            </p>
+            <ul className="breadCrumb">
+              <li>
+                <Link className="text-gray-300" to="/">
+                  Home
+                </Link>
+              </li>
+              <li>Events</li>
+            </ul>
+          </div>
+        </div>
+      </section>
       {/* Main Content */}
       <section className="flex-1 py-16 px-4 sm:px-6 lg:px-8 mt-8">
         {/* Header */}
-        <div
-          className="text-center mb-12"
-        >
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600/20 to-pink-600/20 px-6 py-3 rounded-2xl border border-purple-500/30 mb-4">
-            <FaCalendar className="text-purple-400 text-xl" />
-            <span className="text-purple-300 font-medium text-lg">
-              {projectName || "Our Events"}
-            </span>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent mt-4">
-            Upcoming Events
-          </h1>
-          <p className="text-gray-400 text-lg mt-4 max-w-2xl mx-auto">
-            Discover our latest events, conferences, and gatherings. Join us in
-            shaping the future together.
-          </p>
-        </div>
 
         {/* Events Grid */}
         {loading ? (
           <EventSkeletonLoader />
         ) : error ? (
-          <div
-            className="max-w-2xl mx-auto text-center"
-          >
+          <div className="max-w-2xl mx-auto text-center">
             <div className="bg-red-900/20 border border-red-500/30 rounded-2xl p-8">
               <div className="text-red-400 text-6xl mb-4">⚠️</div>
               <h3 className="text-2xl font-semibold text-red-300 mb-2">
@@ -122,9 +131,7 @@ const Events = () => {
             </div>
           </div>
         ) : events.length === 0 ? (
-          <div
-            className="max-w-2xl mx-auto text-center"
-          >
+          <div className="max-w-2xl mx-auto text-center">
             <div className="bg-gray-800/50 border border-gray-700/50 rounded-2xl p-12">
               <FaCalendar className="text-gray-500 text-6xl mx-auto mb-4" />
               <h3 className="text-2xl font-semibold text-gray-300 mb-2">
@@ -136,9 +143,7 @@ const Events = () => {
             </div>
           </div>
         ) : (
-          <div
-            className="max-w-7xl mx-auto"
-          >
+          <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {events.map((event) => (
                 <div
@@ -270,7 +275,7 @@ const Events = () => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

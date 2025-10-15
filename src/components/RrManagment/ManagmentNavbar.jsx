@@ -47,20 +47,20 @@ const ManagmentNavbar = () => {
 
   const handleNavClick = (id) => {
     console.log(id);
-    navigate(`/managment/${id}`);
+    navigate(`/management/${id}`);
   };
 
   let navLinks = [
+    { id: "", title: "Home" },
     { id: "about", title: "About" },
     { id: "officials", title: "Officials" },
     { id: "event", title: "Event" },
     { id: "contacts", title: "Contacts" },
     { id: "our-clients", title: "Our Client" },
-    // { id: "gallery", title: "Gallery" },
   ];
 
   return (
-    <header className="py-2">
+    <header className="py-2 absolute top-0 left-0 right-0">
       <div className="max-w-7xl mx-auto px-3">
         <nav
           data-aos="fade-down"
