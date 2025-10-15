@@ -116,7 +116,7 @@ const Committee = () => {
             <div className="flex flex-wrap mx-[-15px]">
               {managements.map((data, img) => {
                 return (
-                  <div className="w-[25%] mng-card-layout px-[15px]">
+                  <div className="w-[33.33%] mng-card-layout px-[15px]">
                     <div className="mng-card rounded-lg relative">
                       <div className="card-img">
                         <img

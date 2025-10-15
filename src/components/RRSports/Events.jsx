@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { FaCalendar, FaClock, FaMapMarkerAlt, FaExpand } from "react-icons/fa";
 import { getEventsByProject } from "../../api/eventsService";
 import { Link } from "react-router-dom";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
@@ -14,34 +16,105 @@ const Events = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const project = localStorage.getItem("selectedProject");
-        if (!project) {
-          setError("No project selected");
-          setLoading(false);
-          return;
-        }
+        // const project = localStorage.getItem("selectedProject");
+        // if (!project) {
+        //   setError("No project selected");
+        //   setLoading(false);
+        //   return;
+        // }
 
-        const projectData = JSON.parse(project);
-        setProjectName(
-          projectData.name || projectData.projectName || "Our Project"
-        );
+        // const projectData = JSON.parse(project);
+        // setProjectName(
+        //   projectData.name || projectData.projectName || "Our Project"
+        // );
 
-        const projectId = projectData.id;
-        const eventsData = await getEventsByProject(projectId);
+        // const projectId = projectData.id;
+        // const eventsData = await getEventsByProject(projectId);
 
         // Convert byte[] image data (Base64) to proper image src
-        const formattedEvents = eventsData.map((ev) => ({
-          ...ev,
-          image: ev.image
-            ? `data:image/jpeg;base64,${ev.image}`
-            : "https://via.placeholder.com/400x250?text=No+Image",
-          time:
-            ev.startTime && ev.endTime
-              ? `${ev.startTime} - ${ev.endTime}`
-              : ev.startTime || ev.endTime || "—",
-        }));
 
-        setEvents(formattedEvents);
+
+
+        // const formattedEvents = eventsData.map((ev) => ({
+        //   ...ev,
+        //   image: ev.image
+        //     ? `data:image/jpeg;base64,${ev.image}`
+        //     : "https://via.placeholder.com/400x250?text=No+Image",
+        //   time:
+        //     ev.startTime && ev.endTime
+        //       ? `${ev.startTime} - ${ev.endTime}`
+        //       : ev.startTime || ev.endTime || "—",
+        // }));
+
+
+
+
+        const mockEvents = [
+          {
+            id: 1,
+            name: "Tech Conference 2025",
+            description: "An exciting conference about the future of technology.",
+            location: "San Francisco, CA",
+            status: "Upcoming",
+            images: [
+              "https://plus.unsplash.com/premium_photo-1723291359453-aea7e6bcbebd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1023",
+              "https://plus.unsplash.com/premium_photo-1661414415246-3e502e2fb241?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+              "https://plus.unsplash.com/premium_photo-1661490222612-f6702049e9d1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bWFuYWdtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600"
+            ]
+          },
+          {
+            id: 2,
+            name: "AI Summit",
+            description: "Explore cutting-edge AI innovations.",
+            location: "New York, NY",
+            status: "Done",
+            images: [
+              "https://plus.unsplash.com/premium_photo-1723291359453-aea7e6bcbebd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1023",
+              "https://plus.unsplash.com/premium_photo-1661414415246-3e502e2fb241?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+              "https://plus.unsplash.com/premium_photo-1661490222612-f6702049e9d1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bWFuYWdtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600"
+            ]
+          },
+          {
+            id: 3,
+            name: "Green Energy Meetup",
+            description: "Discussing sustainable energy solutions.",
+            location: "Austin, TX",
+            status: "Upcoming",
+            images: [
+              "https://plus.unsplash.com/premium_photo-1723291359453-aea7e6bcbebd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1023",
+              "https://plus.unsplash.com/premium_photo-1661414415246-3e502e2fb241?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+              "https://plus.unsplash.com/premium_photo-1661490222612-f6702049e9d1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bWFuYWdtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600"
+            ]
+          },
+          {
+            id: 4,
+            name: "Blockchain Expo",
+            description: "A deep dive into blockchain technology.",
+            location: "Miami, FL",
+            status: "Done",
+            images: [
+              "https://plus.unsplash.com/premium_photo-1723291359453-aea7e6bcbebd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1023",
+              "https://plus.unsplash.com/premium_photo-1661414415246-3e502e2fb241?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+              "https://plus.unsplash.com/premium_photo-1661490222612-f6702049e9d1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bWFuYWdtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600"
+            ]
+          },
+          {
+            id: 5,
+            name: "Startup Pitch Night",
+            description: "Watch startups pitch to investors.",
+            location: "Seattle, WA",
+            status: "Upcoming",
+            images: [
+              "https://plus.unsplash.com/premium_photo-1723291359453-aea7e6bcbebd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1023",
+              "https://plus.unsplash.com/premium_photo-1661414415246-3e502e2fb241?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+              "https://plus.unsplash.com/premium_photo-1661490222612-f6702049e9d1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bWFuYWdtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600"
+            ]
+          }
+        ];
+
+        setEvents(mockEvents);
+
+        // setEvents(formattedEvents);
       } catch (err) {
         setError(err.message || "Failed to fetch events");
       } finally {
@@ -51,6 +124,42 @@ const Events = () => {
 
     fetchData();
   }, []);
+
+  const renderEventCard = (event) => (
+    <div
+      key={event.id}
+      className="bg-gray-900 rounded-xl shadow-lg overflow-hidden border border-gray-700"
+    >
+      <Splide
+        options={{
+          type: "loop",
+          autoplay: true,
+          interval: 3000,
+          pagination: false,
+          arrows: false
+        }}
+      >
+        {event.images.map((img, index) => (
+          <SplideSlide key={index}>
+            <img
+              src={img}
+              alt={`Event ${event.name} Slide ${index + 1}`}
+              className="w-full h-48 object-cover"
+            />
+          </SplideSlide>
+        ))}
+      </Splide>
+
+      <div className="p-5">
+        <h4 className="text-xl font-semibold text-white mb-2">{event.name}</h4>
+        <p className="text-gray-400 text-sm mb-2">{event.description}</p>
+        <p className="text-gray-500 text-sm italic">{event.location}</p>
+      </div>
+    </div>
+  );
+
+  const upcomingEvents = events.filter((e) => e.status === "Upcoming");
+  const doneEvents = events.filter((e) => e.status === "Done");
 
   // Skeleton Loader
   const EventSkeletonLoader = () => (
@@ -113,12 +222,13 @@ const Events = () => {
           </div>
         </div>
       </section>
+
       {/* Main Content */}
       <section className="flex-1 py-16 px-4 sm:px-6 lg:px-8 mt-8">
         {/* Header */}
 
         {/* Events Grid */}
-        {loading ? (
+        {/* {loading ? (
           <EventSkeletonLoader />
         ) : error ? (
           <div className="max-w-2xl mx-auto text-center">
@@ -204,11 +314,13 @@ const Events = () => {
               ))}
             </div>
           </div>
-        )}
+        )} */}
+
+
       </section>
 
       {/* Event Modal */}
-      {selectedEvent && (
+      {/* {selectedEvent && (
         <div
           className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           onClick={() => setSelectedEvent(null)}
@@ -274,7 +386,37 @@ const Events = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
+
+      <section className="py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
+        {/* Upcoming Events */}
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-6">
+            Upcoming Events
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {upcomingEvents.length > 0 ? (
+              upcomingEvents.map(renderEventCard)
+            ) : (
+              <p className="text-gray-400">No upcoming events.</p>
+            )}
+          </div>
+        </div>
+
+        {/* Done Events */}
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-6">
+            Already Done
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {doneEvents.length > 0 ? (
+              doneEvents.map(renderEventCard)
+            ) : (
+              <p className="text-gray-400">No past events.</p>
+            )}
+          </div>
+        </div>
+      </section>
     </>
   );
 };

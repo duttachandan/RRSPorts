@@ -1,9 +1,9 @@
 Red Riders sports Club
 
 1. Managment Page > Make card for Management teams(Photo, designation, Name) - 
+
+
 3. Event Page > 2 sections(Upcoming Events, Already Done Events), Implement slider In card's Photo - Done
-
-
 2. Member Page> Make card for Members (Profession, Photo, Company Name) - Done
 4. Change in the Contacts Page - Done
 5. Live Stream Page > add already happened Live videoes - Done
