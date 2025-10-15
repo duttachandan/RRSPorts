@@ -53,11 +53,10 @@ const ManagmentNavbar = () => {
   let navLinks = [
     { id: "about", title: "About" },
     { id: "officials", title: "Officials" },
-    { id: "members", title: "Members" },
     { id: "event", title: "Event" },
     { id: "contacts", title: "Contacts" },
     { id: "our-clients", title: "Our Client" },
-    { id: "gallery", title: "Gallery" },
+    // { id: "gallery", title: "Gallery" },
   ];
 
   return (

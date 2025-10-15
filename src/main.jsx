@@ -12,6 +12,8 @@ import Committee from "./components/RRSports/Committee";
 import LiveScores from "./components/RRSports/LiveScores";
 import LiveStream from "./components/RRSports/LiveStream";
 import Events from "./components/RRSports/Events";
+import Members from "./components/RRSports/Members";
+import Contacts from "./components/Contacts";
 
 // RR Management Section
 import ManagmentLayout from "./components/RrManagment/ManagmentLayout";
@@ -31,11 +33,10 @@ import PrivecyPolicy from "./components/PrivecyPolicy";
 import TermsOfService from "./components/TermsOfService";
 import WhatIsCryptocurrency from "./components/WhatIsCryptocurrency";
 import Management from "./components/Management";
-import Members from "./components/RRSports/Members";
-import Contacts from "./components/Contacts";
 import OurClients from "./components/OurClients";
 import Gallery from "./components/Gallery";
 import { Contact } from "lucide-react";
+import RRComplex from "./components/RRComplex/RRComplex";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -61,7 +62,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           </Route>
 
           {/* RR Sports Complex Routes */}
-          {/* <Route path="/sports-complex" element={}></Route> */}
+          <Route path="/sports-complex" element={<RRComplex />}></Route>
         </Routes>
       </AosProvider>
     </BrowserRouter>
