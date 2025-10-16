@@ -1,6 +1,7 @@
 import { features } from "../constants";
 import styles, { layout } from "../style";
 import Button from "../components/Button";
+import Image1 from "../assets/NewAssets/banner-img2.png"
 
 const FeatureCard = ({ icon, title, content, index }) => (
   <div

@@ -3,6 +3,8 @@ import { discount, aboutImg } from "../assets";
 import GetStarted from "./GetStarted";
 import { arrowUp } from "../assets";
 import Button from "../components/Button";
+import Image1 from "../assets/NewAssets/banner-img.png";
+import Image2 from "../assets/NewAssets/banner-img2.png";
 
 const Hero = () => {
   return (
@@ -49,7 +51,7 @@ const Hero = () => {
         {/* Image Section */}
         <div className={`w-[100%] lg:w-[50%] px-[15px] relative`}>
           <img
-            src={aboutImg}
+            src={Image1}
             alt="billing"
             className="w-[100%] h-[100%] object-contain 
             relative z-[5]"
