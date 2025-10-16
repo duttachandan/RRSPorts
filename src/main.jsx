@@ -4,6 +4,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import AosProvider from "./utils/AosProvider";
 
+// Global CSS
+import "./index.css";
+
 // Sports Club
 import App from "./App";
 import Layout from "./components/RRSports/Layout/Layout";
@@ -22,23 +25,26 @@ import Gallery from "./components/Gallery";
 import RrContacts from "./components/RrManagment/RrContacts";
 import OurClients from "./components/OurClients";
 import RrAbout from "./components/RrManagment/RrAbout";
+import Officials from "./components/RrManagment/Officials";
+
+// RR Authentication
+import Login from "./components/LoginForm";
+import Register from "./components/Register";
 
 // RR Complex Section
-
-import Dashboard from "./components/Dashboard";
-import Register from "./components/Register";
-import Login from "./components/LoginForm";
-import "./index.css";
-import SetMeal from "./components/SetMeal";
-// import About from "./components/About";
-import FAQ from "./components/FAQ";
-import Affiliate from "./components/Affiliate";
-import PrivecyPolicy from "./components/PrivecyPolicy";
-import TermsOfService from "./components/TermsOfService";
-import WhatIsCryptocurrency from "./components/WhatIsCryptocurrency";
-import Management from "./components/Management";
-import { Contact } from "lucide-react";
 import RRComplex from "./components/RRComplex/RRComplex";
+
+
+// import Dashboard from "./components/Dashboard";
+// import SetMeal from "./components/SetMeal";
+// import About from "./components/About";
+// import FAQ from "./components/FAQ";
+// import Affiliate from "./components/Affiliate";
+// import PrivecyPolicy from "./components/PrivecyPolicy";
+// import TermsOfService from "./components/TermsOfService";
+// import WhatIsCryptocurrency from "./components/WhatIsCryptocurrency";
+// import Management from "./components/Management";
+// import { Contact } from "lucide-react";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -56,6 +62,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path="live-stream" element={<LiveStream />} />
             <Route path="events" element={<Events />} />
             <Route path="contacts" element={<Contacts />} />
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
           </Route>
 
           {/* RR Managment Routes */}
@@ -65,6 +73,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path="contacts" element={<RrContacts />} />
             <Route path="our-clients" element={<OurClients />} />
             <Route path="about" element={<RrAbout />} />
+            <Route path="officials" element={<Officials />} />
           </Route>
 
           {/* RR Sports Complex Routes */}

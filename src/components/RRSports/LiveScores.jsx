@@ -142,7 +142,7 @@ const LiveScores = () => {
                 className="text-4xl md:text-5xl 
               font-bold bg-gradient-to-r from-white 
               via-red-400 to-red-600 bg-clip-text 
-              text-transparent  mt-4"
+              text-transparent mt-4"
               >
                 Live Scores
               </h1>

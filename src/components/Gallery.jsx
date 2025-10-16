@@ -118,7 +118,6 @@ const Gallery = () => {
       ? galleryItems
       : galleryItems.filter((item) => item.category === activeFilter);
 
-
   const openImage = (item, index) => {
     setSelectedImage(item);
     setCurrentIndex(index);
@@ -148,139 +147,125 @@ const Gallery = () => {
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
-  // Skeleton Loader
-  // const GallerySkeletonLoader = () => (
-  //   <div className="max-w-7xl mx-auto">
-  //     <motion.div
-  //       initial="hidden"
-  //       animate="visible"
-  //       variants={staggerContainer}
-  //       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-  //     >
-  //       {[...Array(9)].map((_, index) => (
-  //         <motion.div
-  //           key={index}
-  //           variants={cardVariants}
-  //           className="bg-gray-800/50 rounded-2xl shadow-xl overflow-hidden border border-gray-700/50 aspect-square"
-  //         >
-  //           <div className="h-full bg-gradient-to-r from-gray-700 to-gray-600 animate-pulse"></div>
-  //         </motion.div>
-  //       ))}
-  //     </motion.div>
-  //   </div>
-  // );
-
   return (
     <>
-      <div className="flex-1 py-32 px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-green-600/20 to-cyan-600/20 px-6 py-3 rounded-2xl border border-green-500/30 mb-4">
-            <FaImage className="text-green-400 text-xl" />
-            <span className="text-green-300 font-medium text-lg">
-              Visual Journey
-            </span>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent mt-4">
-            Red Riders Gallery
-          </h1>
-          <p className="text-gray-400 text-lg mt-4 max-w-2xl mx-auto">
-            Explore our journey through moments of innovation, collaboration,
-            and success. Each image tells a story of our growth and
-            achievements.
-          </p>
-        </div>
-
-        {/* Filter Tabs */}
-        <div className="max-w-4xl mx-auto mb-8">
-          <div className="flex flex-wrap justify-center gap-3">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setActiveFilter(category.id)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border ${
-                  activeFilter === category.id
-                    ? "bg-green-600/20 text-green-300 border-green-500/50 shadow-lg shadow-green-500/10"
-                    : "bg-gray-800/50 text-gray-400 border-gray-600/50 hover:border-green-500/30 hover:text-green-200"
-                }`}
-              >
-                <FaFilter className="text-xs" />
-                {category.name}
-                <span className="bg-gray-700/50 px-2 py-1 rounded-full text-xs">
-                  {category.count}
+      {/* Header */}
+      <section className="pt-32">
+        <div className="about-banner relative gallery-banner">
+          <div className="max-w-7xl mx-auto px-3">
+            <div className="text-center text-overlay mb-12">
+              <div className="inline-flex items-center gap-3 bg-gradient-to-r from-green-600/20 to-cyan-600/20 px-6 py-3 rounded-2xl border border-green-500/30 mb-4">
+                <FaImage className="text-green-400 text-xl" />
+                <span className="text-green-300 font-medium text-lg">
+                  Visual Journey
                 </span>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Gallery Grid */}
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredItems.map((item, index) => (
-              <div
-                key={item.id}
-                className="group relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-2xl shadow-2xl overflow-hidden border border-gray-700/50 backdrop-blur-sm hover:border-green-500/30 transition-all duration-300 cursor-pointer aspect-square"
-                onClick={() => openImage(item, index)}
-              >
-                <div className="relative h-full w-full overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-green-600/90 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
-                      {item.category.charAt(0).toUpperCase() +
-                        item.category.slice(1)}
-                    </span>
-                  </div>
-
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="bg-black/50 rounded-full p-2 backdrop-blur-sm">
-                      <FaExpand className="text-white text-sm" />
-                    </div>
-                  </div>
-
-                  <div 
-                  className="absolute bottom-[-100%] left-0 right-0 
-                  p-4 py-6 flex justify-end flex-col
-                  transform translate-y-4 group-hover:bottom-0
-                  transition-transform duration-300">
-                    <h3 className="text-white font-bold text-lg mb-1 line-clamp-1">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-300 text-sm line-clamp-2">
-                      {item.description}
-                    </p>
-                    <p className="text-gray-400 text-xs mt-2">
-                      {formatDate(item.date)}
-                    </p>
-                  </div>
-                </div>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Empty State */}
-        {filteredItems.length === 0 && (
-          <div className="max-w-2xl mx-auto text-center mt-12">
-            <div className="bg-gray-800/50 border border-gray-700/50 rounded-2xl p-12">
-              <FaImage className="text-gray-500 text-6xl mx-auto mb-4" />
-              <h3 className="text-2xl font-semibold text-gray-300 mb-2">
-                No Images Found
-              </h3>
-              <p className="text-gray-400">
-                No gallery items match the selected filter. Try choosing a
-                different category.
+              <h1
+                className="text-3xl sm:text-5xl lg:text-6xl 
+              font-extrabold bg-gradient-to-r from-white 
+              via-red-400 to-red-600 bg-clip-text 
+              text-transparent mb-4"
+              >
+                Red Riders Gallery
+              </h1>
+              <p className="text-gray-400 text-lg mt-4 max-w-2xl mx-auto">
+                Explore our journey through moments of innovation,
+                collaboration, and success. Each image tells a story of our
+                growth and achievements.
               </p>
             </div>
           </div>
-        )}
+        </div>
+      </section>
+      {/* Filter Tabs */}
+      <div className="max-w-4xl my-8 mx-auto">
+        <div className="flex flex-wrap justify-center gap-3">
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              onClick={() => setActiveFilter(category.id)}
+              className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border ${
+                activeFilter === category.id
+                  ? "bg-green-600/20 text-green-300 border-green-500/50 shadow-lg shadow-green-500/10"
+                  : "bg-gray-800/50 text-gray-400 border-gray-600/50 hover:border-green-500/30 hover:text-green-200"
+              }`}
+            >
+              <FaFilter className="text-xs" />
+              {category.name}
+              <span className="bg-gray-700/50 px-2 py-1 rounded-full text-xs">
+                {category.count}
+              </span>
+            </button>
+          ))}
+        </div>
       </div>
+      {/* Gallery Grid */}
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredItems.map((item, index) => (
+            <div
+              key={item.id}
+              data-aos={item.id % 2 === 0 ? "fade-right" : "fade-left"}
+              className="group relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-2xl shadow-2xl overflow-hidden border border-gray-700/50 backdrop-blur-sm hover:border-green-500/30 transition-all duration-300 cursor-pointer aspect-square"
+              onClick={() => openImage(item, index)}
+            >
+              <div className="relative h-full w-full overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                <div className="absolute top-4 left-4">
+                  <span className="bg-green-600/90 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
+                    {item.category.charAt(0).toUpperCase() +
+                      item.category.slice(1)}
+                  </span>
+                </div>
+
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-black/50 rounded-full p-2 backdrop-blur-sm">
+                    <FaExpand className="text-white text-sm" />
+                  </div>
+                </div>
+
+                <div
+                  className="absolute bottom-[-100%] left-0 right-0 
+                  p-4 py-6 flex justify-end flex-col
+                  transform translate-y-4 group-hover:bottom-0
+                  transition-transform duration-300"
+                >
+                  <h3 className="text-white font-bold text-lg mb-1 line-clamp-1">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-300 text-sm line-clamp-2">
+                    {item.description}
+                  </p>
+                  <p className="text-gray-400 text-xs mt-2">
+                    {formatDate(item.date)}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* Empty State */}
+      {filteredItems.length === 0 && (
+        <div className="max-w-2xl mx-auto text-center mt-12">
+          <div className="bg-gray-800/50 border border-gray-700/50 rounded-2xl p-12">
+            <FaImage className="text-gray-500 text-6xl mx-auto mb-4" />
+            <h3 className="text-2xl font-semibold text-gray-300 mb-2">
+              No Images Found
+            </h3>
+            <p className="text-gray-400">
+              No gallery items match the selected filter. Try choosing a
+              different category.
+            </p>
+          </div>
+        </div>
+      )}
       {/* Image Modal */}
       {selectedImage && (
         <div

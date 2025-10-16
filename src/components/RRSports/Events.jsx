@@ -1,16 +1,34 @@
 import React, { useEffect, useState } from "react";
-import { FaCalendar, FaClock, FaMapMarkerAlt, FaExpand } from "react-icons/fa";
+// import { FaCalendar, FaClock, FaMapMarkerAlt, FaExpand } from "react-icons/fa";
 import { getEventsByProject } from "../../api/eventsService";
 import { Link } from "react-router-dom";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 
+// Image
+
+import mng1 from "../../assets/complexHouse/mng1.jpeg";
+import mng2 from "../../assets/complexHouse/mng2.jpeg";
+import mng3 from "../../assets/complexHouse/mng3.jpeg";
+import mng4 from "../../assets/complexHouse/mng4.jpeg";
+import mng5 from "../../assets/complexHouse/mng5.jpeg";
+import mng6 from "../../assets/complexHouse/mng6.jpeg";
+import mng7 from "../../assets/complexHouse/mng7.jpeg";
+import mng8 from "../../assets/complexHouse/mng8.jpeg";
+import mng9 from "../../assets/complexHouse/mng9.jpeg";
+import mng10 from "../../assets/complexHouse/mng10.jpeg";
+import mng11 from "../../assets/complexHouse/mng11.jpeg";
+import mng12 from "../../assets/complexHouse/mng12.jpeg";
+import mng13 from "../../assets/complexHouse/mng13.jpeg";
+import mng14 from "../../assets/complexHouse/mng14.jpeg";
+import mng15 from "../../assets/complexHouse/mng15.jpeg";
+import mng16 from "../../assets/complexHouse/mng16.jpeg";
+import mng17 from "../../assets/complexHouse/mng17.jpeg";
+
 const Events = () => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedEvent, setSelectedEvent] = useState(null);
-  const [projectName, setProjectName] = useState("");
 
   // Fetch project name & events
   useEffect(() => {
@@ -33,8 +51,6 @@ const Events = () => {
 
         // Convert byte[] image data (Base64) to proper image src
 
-
-
         // const formattedEvents = eventsData.map((ev) => ({
         //   ...ev,
         //   image: ev.image
@@ -46,70 +62,48 @@ const Events = () => {
         //       : ev.startTime || ev.endTime || "—",
         // }));
 
-
-
-
         const mockEvents = [
           {
             id: 1,
-            name: "Tech Conference 2025",
-            description: "An exciting conference about the future of technology.",
+            name: "Red Rider Conference 2025",
+            description:
+              "An exciting conference about the future of technology.",
             location: "San Francisco, CA",
             status: "Upcoming",
-            images: [
-              "https://plus.unsplash.com/premium_photo-1723291359453-aea7e6bcbebd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1023",
-              "https://plus.unsplash.com/premium_photo-1661414415246-3e502e2fb241?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
-              "https://plus.unsplash.com/premium_photo-1661490222612-f6702049e9d1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bWFuYWdtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600"
-            ]
+            images: [mng1, mng2, mng3],
           },
           {
             id: 2,
-            name: "AI Summit",
+            name: "Auction",
             description: "Explore cutting-edge AI innovations.",
             location: "New York, NY",
             status: "Done",
-            images: [
-              "https://plus.unsplash.com/premium_photo-1723291359453-aea7e6bcbebd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1023",
-              "https://plus.unsplash.com/premium_photo-1661414415246-3e502e2fb241?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
-              "https://plus.unsplash.com/premium_photo-1661490222612-f6702049e9d1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bWFuYWdtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600"
-            ]
+            images: [mng4, mng5, mng6],
           },
           {
             id: 3,
-            name: "Green Energy Meetup",
+            name: "Red Rider Auction",
             description: "Discussing sustainable energy solutions.",
             location: "Austin, TX",
             status: "Upcoming",
-            images: [
-              "https://plus.unsplash.com/premium_photo-1723291359453-aea7e6bcbebd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1023",
-              "https://plus.unsplash.com/premium_photo-1661414415246-3e502e2fb241?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
-              "https://plus.unsplash.com/premium_photo-1661490222612-f6702049e9d1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bWFuYWdtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600"
-            ]
+            images: [mng7, mng8, mng9],
           },
           {
             id: 4,
-            name: "Blockchain Expo",
+            name: "Cricket Expo",
             description: "A deep dive into blockchain technology.",
             location: "Miami, FL",
             status: "Done",
-            images: [
-              "https://plus.unsplash.com/premium_photo-1723291359453-aea7e6bcbebd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1023",
-              "https://plus.unsplash.com/premium_photo-1661414415246-3e502e2fb241?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
-              "https://plus.unsplash.com/premium_photo-1661490222612-f6702049e9d1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bWFuYWdtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600"
-            ]
+            images: [mng10, mng11, mng12],
           },
           {
             id: 5,
-            name: "Startup Pitch Night",
+            name: "Red Rider Pitch Night",
             description: "Watch startups pitch to investors.",
             location: "Seattle, WA",
             status: "Upcoming",
-            images: [
-              "https://plus.unsplash.com/premium_photo-1723291359453-aea7e6bcbebd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1023",
-              "https://plus.unsplash.com/premium_photo-1661414415246-3e502e2fb241?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
-              "https://plus.unsplash.com/premium_photo-1661490222612-f6702049e9d1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bWFuYWdtZW50fGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600"
-            ]
-          }
+            images: [mng13, mng14, mng15],
+          },
         ];
 
         setEvents(mockEvents);
@@ -136,7 +130,7 @@ const Events = () => {
           autoplay: true,
           interval: 3000,
           pagination: false,
-          arrows: false
+          arrows: false,
         }}
       >
         {event.images.map((img, index) => (
@@ -315,8 +309,6 @@ const Events = () => {
             </div>
           </div>
         )} */}
-
-
       </section>
 
       {/* Event Modal */}
@@ -405,9 +397,7 @@ const Events = () => {
 
         {/* Done Events */}
         <div>
-          <h2 className="text-2xl font-bold text-white mb-6">
-            Already Done
-          </h2>
+          <h2 className="text-2xl font-bold text-white mb-6">Already Done</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {doneEvents.length > 0 ? (
               doneEvents.map(renderEventCard)

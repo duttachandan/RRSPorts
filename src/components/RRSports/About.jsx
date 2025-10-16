@@ -75,7 +75,6 @@ const About = () => {
     };
   }, []);
 
-  
   return (
     <>
       {/* Main Content */}
@@ -105,7 +104,7 @@ const About = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Hero Section */}
       <section className="py-8">
         <div className="max-w-7xl mx-auto px-3 text-center">
@@ -467,18 +466,8 @@ const About = () => {
                 },
                 {
                   icon: FaRunning,
-                  name: "Athletics",
+                  name: "Pickleball",
                   color: "text-green-400",
-                },
-                {
-                  icon: FaBasketballBall,
-                  name: "Basketball",
-                  color: "text-orange-400",
-                },
-                {
-                  icon: FaVolleyballBall,
-                  name: "Volleyball",
-                  color: "text-blue-400",
                 },
                 {
                   icon: FaTableTennis,
@@ -491,34 +480,14 @@ const About = () => {
                   color: "text-purple-400",
                 },
                 {
-                  icon: FaSwimmer,
-                  name: "Swimming",
-                  color: "text-cyan-400",
-                },
-                {
-                  icon: FaDumbbell,
-                  name: "Weightlifting",
-                  color: "text-gray-400",
-                },
-                {
-                  icon: FaRunning,
-                  name: "Marathon",
-                  color: "text-pink-400",
-                },
-                {
                   icon: FaTrophy,
                   name: "Badminton",
                   color: "text-indigo-400",
                 },
                 {
-                  icon: FaTrophy,
+                  icon: FaVolleyballBall,
                   name: "Football",
                   color: "text-green-500",
-                },
-                {
-                  icon: FaTrophy,
-                  name: "Hockey",
-                  color: "text-yellow-300",
                 },
               ].map((sport, index) => (
                 <div

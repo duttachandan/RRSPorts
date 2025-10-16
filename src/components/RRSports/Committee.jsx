@@ -126,8 +126,9 @@ const Committee = () => {
                         />
                       </div>
                       <div
-                        className="card-docs transition duration-100 
-                      absolute top-[100%]"
+                        className="card-docs 
+                        transition duration-100 
+                        absolute rounded-full text-center"
                       >
                         <h4 className="title4 text-2xl">{data.managementName}</h4>
                         <p>

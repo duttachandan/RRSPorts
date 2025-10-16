@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaUser, FaUsers, FaIdBadge, FaCheckCircle } from "react-icons/fa";
 import { getMembers } from "../../api/memberService";
+import { img } from "framer-motion/client";
 
 const Members = () => {
   const [members, setMembers] = useState([]);
@@ -108,46 +109,36 @@ const Members = () => {
           </div>
         ) : (
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {members.map((m, index) => (
-                <div
-                  key={m.id}
-                  className="group relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-2xl shadow-2xl overflow-hidden flex flex-col items-center p-8 border border-gray-700/50 backdrop-blur-sm hover:border-purple-500/30 transition-all duration-300"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-                  <div className="relative z-10 mb-6">
-                    {m.memberImage ? (
-                      <img
-                        src={`data:image/png;base64,${m.memberImage}`}
-                        alt={m.memberName}
-                        className="w-32 h-32 rounded-full object-cover border-4 border-gray-700/50 group-hover:border-pink-500/50 transition-all duration-300 shadow-2xl"
-                      />
-                    ) : (
-                      <div className="w-32 h-32 rounded-full bg-gradient-to-br from-gray-700 to-gray-600 flex items-center justify-center border-4 border-gray-700/50 group-hover:border-pink-500/50 transition-all duration-300">
-                        <FaIdBadge className="text-gray-400 text-5xl" />
-                      </div>
-                    )}
-                    <div className="absolute -bottom-2 -right-2 bg-green-500 rounded-full p-1.5 border-4 border-gray-900">
-                      <FaCheckCircle className="text-white text-sm" />
+            <div className="flex flex-wrap mx-[-15px]">
+              {members.map((data, index) => (
+                <div className="w-[33.33%] mng-card-layout px-[15px]">
+                  <div className="mng-card mb-5 md:mb-0 rounded-lg relative">
+                    <div className="card-img">
+                      {data?.memberImage ? (
+                        <img
+                          src={`data:image/png;base64,${data.memberImage}`}
+                          alt={data.memberName}
+                          className="w-[100%] h-[350px] object-cover"
+                        />
+                      ) : (
+                        <img
+                          className="w-[100%] h-[350px] object-cover"
+                          src="https://i.pravatar.cc/400?img=12"
+                          alt=""
+                        />
+                      )}
                     </div>
-                  </div>
-
-                  <div className="relative z-10 text-center">
-                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-pink-300 transition-colors duration-300">
-                      {m.memberName}
-                    </h3>
-                    {m.role && (
-                      <p className="text-pink-400 font-medium mb-3">{m.role}</p>
-                    )}
-                    {m.department && (
-                      <p className="text-gray-400 text-sm mb-4">
-                        {m.department}
-                      </p>
-                    )}
-                    <div className="flex justify-center gap-4 text-xs text-gray-500">
-                      {m.experience && <span>{m.experience} yrs exp</span>}
-                      {m.memberId && <span>ID: {m.memberId}</span>}
+                    <div
+                      className="card-docs 
+                        transition duration-100 
+                        absolute rounded-full text-center"
+                    >
+                      <h4 className="title4 text-2xl">{data.memberName}</h4>
+                      {/* <p>
+                        {data.managmentDesignation
+                          ? data.managmentDesignation
+                          : "Data Analyst"}
+                      </p> */}
                     </div>
                   </div>
                 </div>

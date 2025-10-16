@@ -4,6 +4,9 @@ import { close, menu } from "../../assets";
 import { ChevronDown } from "lucide-react";
 import { getAllProjects } from "../../api/projectService";
 import toast from "react-hot-toast";
+import Logo from "../../assets/logo/Sportsclub.jpg";
+import management from "../../assets/logo/managment.jpg";
+import complex from "../../assets/logo/redriderscomplex.jpeg";
 
 const ComplexNavbar = () => {
   const navigate = useNavigate();
@@ -45,6 +48,39 @@ const ComplexNavbar = () => {
     toast.success(`Switched to ${proj.projectName}`);
   };
 
+  const getProjectLogo = (proj) => {
+    if (!proj?.projectName) return null;
+
+    switch (proj.projectName) {
+      case "Red Riders Sports Club":
+        return (
+          <img src={Logo} alt="Red Riders" className="w-6 h-6 object-contain" />
+        );
+      case "Red Riders Management":
+        return (
+          <img
+            src={management}
+            alt="Blue Falcons"
+            className="w-6 h-6 object-contain"
+          />
+        );
+      case "Red Riders Sports Complex":
+        return (
+          <img
+            src={complex}
+            alt="Green Warriors"
+            className="w-6 h-6 object-contain"
+          />
+        );
+      default:
+        return (
+          <span>
+            {proj.shortName || proj.projectName.slice(0, 2).toUpperCase()}
+          </span>
+        );
+    }
+  };
+
   return (
     <header className="py-2">
       <div className="max-w-7xl mx-auto px-3">
@@ -64,7 +100,7 @@ const ComplexNavbar = () => {
                 className="w-10 h-10 flex items-center justify-center bg-black 
           text-red-400 font-bold rounded-md border-2 border-red-500"
               >
-                {selectedProject?.shortName || "?"}
+                <img src={complex} alt="" />
               </div>
               <span
                 className="text-white font-poppins text-[10px]
@@ -100,8 +136,7 @@ const ComplexNavbar = () => {
                       className="w-9 h-9 flex items-center justify-center bg-black 
                 text-red-400 font-bold rounded-md border border-red-500 text-[10px] sm:text-[16px]"
                     >
-                      {proj.shortName ||
-                        proj.projectName?.slice(0, 2)?.toUpperCase()}
+                      {getProjectLogo(proj)}
                     </div>
                     <span className="text-white font-poppins text-[10px] sm:text-[16px] font-medium truncate">
                       {proj.projectName}

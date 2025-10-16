@@ -102,9 +102,9 @@ const LiveStream = () => {
     <>
       <section className="py-3 about-banner">
         <div className="max-w-7xl mx-auto px-3">
-          <div className="text-center mb-12 text-overlay">
+          <div data-aos="fade-up" className="text-center mb-12 text-overlay">
             <div className="inline-flex items-center gap-3 bg-gradient-to-r from-red-600/20 to-red-800/20 px-6 py-3 rounded-2xl border border-red-500/30 mb-4">
-              <div className="flex items-center gap-2">
+              <div  className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
                 <span className="text-red-300 font-medium text-lg">
                   LIVE NOW
@@ -112,6 +112,7 @@ const LiveStream = () => {
               </div>
             </div>
             <h1
+              data-aos="fade-up"
               className="text-4xl md:text-5xl
              font-bold mt-4 bg-gradient-to-r from-white 
               via-red-400 to-red-600 bg-clip-text 
@@ -119,7 +120,10 @@ const LiveStream = () => {
             >
               Live Stream
             </h1>
-            <p className="text-gray-400 text-lg mt-4 max-w-2xl mx-auto">
+            <p
+              data-aos="fade-up"
+              className="text-gray-400 text-lg mt-4 max-w-2xl mx-auto"
+            >
               Watch live matches, training sessions, and exclusive club events
               in real-time
             </p>
@@ -137,12 +141,9 @@ const LiveStream = () => {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8 mt-8">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
-
-          {/* Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Player */}
-            <div className="lg:col-span-3">
+            <div data-aos="fade-left" className="lg:col-span-3">
               <div className="relative bg-gray-800/50 rounded-2xl shadow-2xl overflow-hidden border border-gray-700/50 backdrop-blur-sm">
                 <div className="p-6 border-b border-gray-700/50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                   <div>
@@ -246,7 +247,7 @@ const LiveStream = () => {
             </div>
 
             {/* Sidebar */}
-            <div className="space-y-6">
+            <div data-aos="fade-right" className="space-y-6">
               <div className="  rounded-2xl p-6 shadow-xl border border-gray-700/50 backdrop-blur-sm">
                 <h3 className="text-xl mb-4 text-white">Upcoming Streams</h3>
                 {[
@@ -294,6 +295,7 @@ const LiveStream = () => {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2
+            data-aos="fade-up"
             className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white 
             via-red-400 to-red-600 bg-clip-text text-transparent mb-8"
           >
@@ -308,7 +310,7 @@ const LiveStream = () => {
               autoplay: true,
               pauseOnHover: false,
               pagination: false,
-              arrows: true,
+              arrows: false,
               breakpoints: {
                 1280: { perPage: 3 },
                 1024: { perPage: 2 },
@@ -318,7 +320,10 @@ const LiveStream = () => {
           >
             {pastVideos.map((video) => (
               <SplideSlide key={video.id}>
-                <div className="bg-gray-800/50 rounded-2xl overflow-hidden border border-gray-700/40 shadow-xl hover:shadow-red-700/30 transition-all duration-300">
+                <div
+                  data-aos="fade-down"
+                  className="bg-gray-800/50 rounded-2xl overflow-hidden border border-gray-700/40 shadow-xl hover:shadow-red-700/30 transition-all duration-300"
+                >
                   <div className="aspect-video">
                     <iframe
                       src={video.url}
@@ -327,6 +332,7 @@ const LiveStream = () => {
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
+                      loading="lazy"
                     ></iframe>
                   </div>
                   <div className="p-4 text-left">

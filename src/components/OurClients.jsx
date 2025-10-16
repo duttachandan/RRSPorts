@@ -1,8 +1,4 @@
 import React from "react";
-import Navbar from "./Navbar";
-import Footer from "../containers/Footer";
-import { motion } from "framer-motion";
-import styles from "../style";
 import {
   FaBuilding,
   FaGlobe,
@@ -10,6 +6,10 @@ import {
   FaStar,
   FaQuoteLeft,
 } from "react-icons/fa";
+
+import CountUpOnScroll from "../utils/countUpOnScroll";
+
+// import
 
 const OurClients = () => {
   // Hardcoded clients data
@@ -100,24 +100,6 @@ const OurClients = () => {
     },
   ];
 
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.9, y: 20 },
-    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5 } },
-  };
-
   const renderStars = (rating) => {
     return [...Array(5)].map((_, index) => (
       <FaStar
@@ -131,26 +113,68 @@ const OurClients = () => {
 
   return (
     <>
-      <section className="flex-1 py-16 px-4 sm:px-6 lg:px-8 mt-8">
+      <main>
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-3 
+        <section className="pt-32">
+          <div className="about-banner gallery-banner">
+            <div className="max-w-7xl max-auto px-3">
+              <div className="text-overlay">
+                <div className="text-center mb-12">
+                  <div
+                    className="inline-flex items-center gap-3 
           bg-gradient-to-r from-blue-600/20 to-cyan-600/20 
-          px-6 py-3 rounded-2xl border border-blue-500/30 mb-4">
-            <FaBuilding className="text-red-400 text-xl" />
-            <span className="text-red-300 font-medium text-lg">
-              Red Riders Management
-            </span>
+          px-6 py-3 rounded-2xl border border-blue-500/30 mb-4"
+                  >
+                    <FaBuilding className="text-red-400 text-xl" />
+                    <span className="text-red-300 font-medium text-lg">
+                      Red Riders Management
+                    </span>
+                  </div>
+                  <h1
+                    className="text-4xl md:text-5xl font-bold 
+          mt-4 primary-text"
+                  >
+                    Our Valued Clients
+                  </h1>
+                  <p className="text-gray-400 text-lg mt-4 max-w-2xl mx-auto">
+                    We're proud to collaborate with industry leaders and
+                    innovative companies worldwide, delivering exceptional
+                    solutions and building lasting relationships.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold 
-          mt-4 primary-text">
-            Our Valued Clients
-          </h1>
-          <p className="text-gray-400 text-lg mt-4 max-w-2xl mx-auto">
-            We're proud to collaborate with industry leaders and innovative
-            companies worldwide, delivering exceptional solutions and building
-            lasting relationships.
-          </p>
+        </section>
+
+        {/* Stats Section */}
+        <div className="max-w-4xl mx-auto mt-16 mb-8">
+          <div className="bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-2xl p-8 border border-gray-700/50 backdrop-blur-sm">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              <div>
+                <div className="text-3xl font-bold text-blue-400 mb-2"><CountUpOnScroll base={0} target={50} />+</div>
+                <div className="text-gray-400 text-sm">Clients Worldwide</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-green-400 mb-2">
+                  <CountUpOnScroll base={0} target={150} />+
+                </div>
+                <div className="text-gray-400 text-sm">Projects Completed</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-purple-400 mb-2">
+                  <CountUpOnScroll base={0} target={100} />%
+                </div>
+                <div className="text-gray-400 text-sm">Client Satisfaction</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-cyan-400 mb-2">
+                  <CountUpOnScroll base={0} target={8} />+
+                </div>
+                <div className="text-gray-400 text-sm">Years Experience</div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Clients Grid */}
@@ -160,6 +184,7 @@ const OurClients = () => {
               {clients.map((client) => (
                 <div
                   key={client.id}
+                  data-aos={client.id % 2 === 0 ? "fade-right" : "fade-left"}
                   className="group relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-2xl shadow-2xl overflow-hidden border border-gray-700/50 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-300"
                 >
                   <div className="p-6">
@@ -236,35 +261,7 @@ const OurClients = () => {
             </div>
           </div>
         </section>
-
-        {/* Stats Section */}
-        <div className="max-w-4xl mx-auto mt-16">
-          <div className="bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-2xl p-8 border border-gray-700/50 backdrop-blur-sm">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              <div>
-                <div className="text-3xl font-bold text-blue-400 mb-2">50+</div>
-                <div className="text-gray-400 text-sm">Clients Worldwide</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-green-400 mb-2">
-                  150+
-                </div>
-                <div className="text-gray-400 text-sm">Projects Completed</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-purple-400 mb-2">
-                  98%
-                </div>
-                <div className="text-gray-400 text-sm">Client Satisfaction</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-cyan-400 mb-2">8+</div>
-                <div className="text-gray-400 text-sm">Years Experience</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </main>
     </>
   );
 };
