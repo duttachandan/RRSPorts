@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
 import styles from "../style";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaInstagram, FaFacebook, FaYoutube } from "react-icons/fa";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaInstagram,
+  FaFacebook,
+  FaYoutube,
+} from "react-icons/fa";
 
 const Footer = () => (
   <footer className={`${styles.flexCenter} ${styles.paddingY} flex-col`}>
@@ -10,8 +17,10 @@ const Footer = () => (
         {/* Brand Section */}
         <div className="flex flex-col">
           <div className="flex flex-col mb-6">
-            <Link to="/" 
-            className="font-bold footer-hdr text-3xl lg:text-4xl bg-gradient-to-r from-red-600 via-red-400 to-red-300 bg-clip-text text-transparent">
+            <Link
+              to="/"
+              className="font-bold footer-hdr text-3xl lg:text-4xl bg-gradient-to-r from-red-600 via-red-400 to-red-300 bg-clip-text text-transparent"
+            >
               Red Riders
             </Link>
             <p className="font-semibold text-xl text-gray-300 mt-1">
@@ -19,8 +28,9 @@ const Footer = () => (
             </p>
           </div>
           <p className={`${styles.paragraph} text-gray-400 max-w-md`}>
-            Kolkata's premier sports destination with state-of-the-art facilities,
-            expert coaching, and a vibrant community of passionate athletes.
+            Kolkata's premier sports destination with state-of-the-art
+            facilities, expert coaching, and a vibrant community of passionate
+            athletes.
           </p>
         </div>
 
@@ -35,7 +45,8 @@ const Footer = () => (
               <div>
                 <p className=" font-medium text-white text-sm">Address</p>
                 <p className=" text-gray-400 text-[10px] xs:text-sm mt-1">
-                  Red Riders Sports Club, [Insert Address], Kolkata, India
+                  34/1Q, Ballygunge Circular Rd, near Ballygunge science
+                  college, Ballygunge, Kolkata, West Bengal 700019, India
                 </p>
               </div>
             </div>
@@ -45,7 +56,7 @@ const Footer = () => (
               <div>
                 <p className=" font-medium text-white text-sm">Phone</p>
                 <p className=" text-gray-400 text-[10px] xs:text-sm mt-1">
-                  +91-9874723221
+                  +91-98747 23221
                 </p>
               </div>
             </div>
@@ -100,7 +111,9 @@ const Footer = () => (
                 </div>
                 <div>
                   <p className=" font-medium text-white text-sm">Facebook</p>
-                  <p className=" text-gray-400 text-xs">Red Riders Sports Club</p>
+                  <p className=" text-gray-400 text-xs">
+                    Red Riders Sports Club
+                  </p>
                 </div>
               </a>
 
@@ -115,7 +128,9 @@ const Footer = () => (
                 </div>
                 <div>
                   <p className=" font-medium text-white text-sm">YouTube</p>
-                  <p className=" text-gray-400 text-xs">Red Riders Boundary Banter</p>
+                  <p className=" text-gray-400 text-xs">
+                    Red Riders Boundary Banter
+                  </p>
                 </div>
               </a>
             </div>
@@ -125,19 +140,34 @@ const Footer = () => (
 
       {/* Quick Links Row */}
       <div className="flex flex-wrap justify-center gap-6 py-6 border-t border-gray-700/50">
-        <Link to="/about" className=" text-gray-400 hover:text-red-400 transition-colors duration-300 text-sm">
+        <Link
+          to="/about"
+          className=" text-gray-400 hover:text-red-400 transition-colors duration-300 text-sm"
+        >
           About
         </Link>
-        <Link to="/event" className=" text-gray-400 hover:text-red-400 transition-colors duration-300 text-sm">
+        <Link
+          to="/event"
+          className=" text-gray-400 hover:text-red-400 transition-colors duration-300 text-sm"
+        >
           Events
         </Link>
-        <Link to="/management" className=" text-gray-400 hover:text-red-400 transition-colors duration-300 text-sm">
+        <Link
+          to="/management"
+          className=" text-gray-400 hover:text-red-400 transition-colors duration-300 text-sm"
+        >
           Managements
         </Link>
-        <Link to="/members" className=" text-gray-400 hover:text-red-400 transition-colors duration-300 text-sm">
+        <Link
+          to="/members"
+          className=" text-gray-400 hover:text-red-400 transition-colors duration-300 text-sm"
+        >
           Members
         </Link>
-        <Link to="/contact" className=" text-gray-400 hover:text-red-400 transition-colors duration-300 text-sm">
+        <Link
+          to="/contact"
+          className=" text-gray-400 hover:text-red-400 transition-colors duration-300 text-sm"
+        >
           Contact
         </Link>
       </div>
@@ -146,10 +176,7 @@ const Footer = () => (
       <div className="w-full flex justify-center items-center pt-6 border-t border-gray-700/50">
         <p className=" font-normal text-center text-gray-400 text-sm">
           Copyright Ⓒ 2025
-          <Link to="/">
-            Red Riders Sports Club
-          </Link>
-          . All Rights Reserved.
+          <Link to="/">Red Riders Sports Club</Link>. All Rights Reserved.
         </p>
       </div>
     </div>

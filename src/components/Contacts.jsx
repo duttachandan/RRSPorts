@@ -102,27 +102,32 @@ const Contacts = () => {
                 Connect with the Red Riders community. We're here to help you
                 become part of our vibrant sports family.
               </p>
-              <ul className="breadCrumb">
-                <li>
-                  <Link
-                    className="text-gray-300"
-                    to={
-                      location.pathname === "/management/contacts"
-                        ? "/management"
-                        : "/"
-                    }
-                  >
-                    {location.pathname === "/management/contacts"
-                      ? "Managment"
-                      : "Home"}
-                  </Link>
-                </li>
-                <li>Contact Us</li>
-              </ul>
+              {location.pathname === "/management/contacts" ? (
+                " "
+              ) : (
+                <ul className="breadCrumb">
+                  <li>
+                    <Link
+                      className="text-gray-300"
+                      to={
+                        location.pathname === "/management/contacts"
+                          ? "/management"
+                          : "/"
+                      }
+                    >
+                      {location.pathname === "/management/contacts"
+                        ? "Managment"
+                        : "Home"}
+                    </Link>
+                  </li>
+                  <li>Contact Us</li>
+                </ul>
+              )}
             </div>
           </div>
         </div>
       </section>
+
       <section className="flex-1 py-16 px-4 sm:px-6 lg:px-8 mt-8">
         <div className="max-w-7xl mx-auto">
           <div data-aos="zoom-in" className="w-[100%]">
@@ -155,7 +160,7 @@ const Contacts = () => {
                     </h2>
                   </div>
 
-                  <p className="text-gray-300 text-lg mb-8 leading-relaxed">
+                  <p className="text-gray-300 text-base sm:text-lg mb-8 leading-relaxed">
                     We'd love to hear from you! Whether you have questions about
                     membership, upcoming events, or want to collaborate with Red
                     Riders Sports Club, our team is here to help.
@@ -168,9 +173,10 @@ const Contacts = () => {
                       </div>
                       <div>
                         <p className="text-gray-400 text-sm">Address</p>
-                        <p className="text-white font-medium">
-                          Red Riders Sports Club, [Insert Address], Kolkata,
-                          India
+                        <p className="text-white font-medium text-xs sm:text-base">
+                          Red Riders Sports Club, 34/1Q, Ballygunge Circular Rd,
+                          near Ballygunge science college, Ballygunge, Kolkata,
+                          West Bengal 700019, India.
                         </p>
                       </div>
                     </div>
@@ -181,17 +187,23 @@ const Contacts = () => {
                       </div>
                       <div>
                         <p className="text-gray-400 text-sm">Phone</p>
-                        <p className="text-white font-medium">+91-9874723221</p>
+                        <p className="text-white font-medium text-xs sm:text-base">
+                          +91-98747 23221
+                        </p>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-4 p-4 bg-gray-700/30 rounded-xl border border-gray-600/30 hover:border-blue-500/30 transition-all duration-300">
+                    <div
+                      className="flex items-center overflow-hidden 
+                    gap-4 p-4 bg-gray-700/30 rounded-xl border border-gray-600/30 
+                    hover:border-blue-500/30 transition-all duration-300"
+                    >
                       <div className="p-2 bg-blue-600/20 rounded-lg border border-blue-500/30">
                         <FaEnvelope className="text-blue-400 text-lg" />
                       </div>
                       <div>
                         <p className="text-gray-400 text-sm">Email</p>
-                        <p className="text-white font-medium">
+                        <p className="text-white font-medium text-xs sm:text-base">
                           redriderssportsclub2023@gmail.com
                         </p>
                       </div>

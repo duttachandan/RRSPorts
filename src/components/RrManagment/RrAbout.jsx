@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   FaTrophy,
   FaUsers,
@@ -39,7 +40,13 @@ import {
 } from "react-icons/fa";
 import Button from "../Button";
 
-import Image5 from "../../assets/NewAssets/topBadminton.jpg";
+// import Image5 from "../../assets/NewAssets/topBadminton.jpg";
+import testimonial3 from "../../assets/Testimonial Sectio/logoT.jpeg";
+import testimonial4 from "../../assets/Testimonial Sectio/cmpny4.png";
+import testimonial6 from "../../assets/Testimonial Sectio/cmpny6.png";
+import logo1 from "../../assets/Testimonial Sectio/logo2.jpeg";
+import logo2 from "../../assets/Testimonial Sectio/logo4.jpeg";
+import Image5 from "../../assets/complexHouse/mng27.jpeg";
 
 import CountUpOnScroll from "../../utils/countUpOnScroll";
 
@@ -77,25 +84,25 @@ const RrAbout = () => {
             {[
               {
                 icon: FaClipboardList,
-                number: "500",
+                number: "50",
                 param: "+",
-                label: "Events Managed",
+                label: "Sports Events",
               },
               {
                 icon: FaUsers,
-                number: "10",
+                number: "500",
                 param: "+",
-                label: "Athletes Managed",
+                label: "Live Streaming",
               },
               {
                 icon: FaMoneyBillWave,
-                number: "50",
-                param: "Cr",
-                label: "Revenue Generated",
+                number: "1500",
+                param: "+",
+                label: "Player Played",
               },
               {
                 icon: FaAward,
-                number: "95",
+                number: "99.9",
                 param: "%",
                 label: "Client Satisfaction",
               },
@@ -119,8 +126,10 @@ const RrAbout = () => {
         </div>
       </section>
 
-      <section className="About-us-sec managment-about
-      py-8 pt-40  text-white relative">
+      <section
+        className="About-us-sec managment-about
+      py-8 pt-40  text-white relative"
+      >
         <div
           className="absolute z-[0] w-[50%] h-[50%] left-20 
         top-[-20px] blue__gradient"
@@ -150,7 +159,6 @@ const RrAbout = () => {
                   structure, and precision to bring unforgettable sports
                   experiences to life.
                 </p>
-                <Button />
               </div>
               {/* Image Section */}
               <div data-aos="fade-left" className="w-full md:w-1/2 px-[15px]">
@@ -159,22 +167,22 @@ const RrAbout = () => {
               md:max-w-[400px] rounded-3xl overflow-hidden relative"
                 >
                   <div
-                    className="p-4 absolute bottom-[-10px] left-[-34px] 
-                bg-all text-center"
+                    className="p-0 absolute bottom-0 left-[-10px] 
+                bg-all text-center px-[5px] pb-[10px] w-[130px]"
                   >
                     <span className="text-3xl font-bold">
-                      <CountUpOnScroll base={0} target={100} />
+                      <CountUpOnScroll base={0} target={15} />
                     </span>
                     +
                     <br />
-                    <span>Active Members</span>
+                    <span>Sports</span>
                   </div>
                   <div
                     className="p-4 absolute bottom-[70px] left-[-10px] 
                 bg-all rounded-2xl text-center"
                   >
                     <span className="text-3xl font-bold">
-                      <CountUpOnScroll base={0} target={12} />
+                      <CountUpOnScroll base={0} target={50} />
                     </span>
                     +
                     <br />
@@ -192,132 +200,83 @@ const RrAbout = () => {
         </div>
       </section>
 
-      {/* Premier Tournaments - Enhanced */}
-      <section className="py-8">
-        <div className="max-w-7xl mx-auto px-3">
-          <div className="space-y-8">
-            <div className="text-center">
-              <h3 className="text-2xl font-bold primary-text">
-                Premier Tournaments & Leagues
-              </h3>
-              <p className="text-gray-400 mt-2">
-                Professional tournaments that define sporting excellence
-              </p>
-            </div>
+      {/* Event Timeline / Testimonial Section */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl md:text-3xl font-bold text-white">
+              MILESTONES
+            </h3>
+            <p className="text-gray-400 mt-2">
+              A journey of excellence through our flagship tournaments
+            </p>
+          </div>
 
-            <div className="space-y-8">
-              <div className="bg-gradient-to-r from-[#4B4D4E] to-transparent p-4 md:p-8 rounded-2xl">
-                <div className="flex items-center mb-6">
-                  <div>
-                    <h4 className="text-2xl text-white flex items-center">
-                      <div className="background-gray rounded-full p-3 mr-4">
-                        <FaTrophy className="text-2xl text-gray-900 icon-bg" />
-                      </div>
-                      Red Riders Indoor Premiere League (RRIPL)
-                    </h4>
-                    <p className="text-white mt-3">
-                      India's Premier Indoor Cricket Championship
-                    </p>
-                  </div>
+          {/* Timeline Container */}
+          <div
+            className="relative flex flex-col md:flex-row items-center 
+          md:justify-between gap-10 md:gap-0"
+          >
+            {/* Line behind icons */}
+            <div
+              className="hidden md:block absolute top-[70px] 
+            left-0 w-full h-[2px] bg-gray-600 z-0"
+            ></div>
+
+            {[
+              {
+                img: testimonial4,
+                title: "AALSOC CRICKET LEAGUE",
+                desc: "Our first Cricket tournament with 100 players. The complete auction and games were conducted with excellence.",
+              },
+              {
+                img: logo1,
+                title: "ACE PREMIER LEAGUE",
+                desc: "Pickleball tournament with over 120 players managed across 4 courts over 2 days.",
+              },
+              {
+                img: testimonial3,
+                title: "RIDERS CUP 2025",
+                desc: "Premier inter-club cricket tournament featuring Kolkata’s elite clubs with live streaming and DRS options.",
+              },
+              {
+                img: logo2,
+                title: "SATURDAY CLUB CARNIVAL 2025",
+                desc: "One of the most prestigious club tournaments of the city with live scoring and streaming for all sports.",
+              },
+              {
+                img: testimonial6,
+                title: "HINDUSTHAN CLUB CARNIVAL 2025",
+                desc: "Featuring 15 different sports and 800+ players, one of the biggest inter-club tournaments in the city.",
+              },
+            ].map((event, index) => (
+              <div
+                key={index}
+                data-aos={index % 2 === 0 ? "fade-up" : "fade-down"}
+                className="flex flex-col items-center text-center relative z-10 md:w-[18%] w-full"
+              >
+                {/* Hexagon Image */}
+                <div
+                  className="relative w-[120px] h-[120px]
+                 md:w-[140px] md:h-[140px] flex items-center 
+                 justify-center bg-gray-700 clip-hexagon border-4 border-blue-800 shadow-lg"
+                >
+                  <img
+                    src={event.img}
+                    alt={event.title}
+                    className="object-contain w-[90%] h-[90%] clip-hexagon-inner"
+                  />
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <p className="text-gray-300 mb-4 leading-relaxed">
-                      The Red Riders Indoor Premiere League stands as the crown
-                      jewel of our sporting calendar. With 10 successful seasons
-                      completed, RRIPL has revolutionized indoor cricket in
-                      Eastern India through its professional organization,
-                      thrilling matches, and unparalleled player experience.
-                    </p>
-
-                    <div className="space-y-3 mb-6">
-                      <h5 className="font-semibold text-white text-lg">
-                        Key Features:
-                      </h5>
-                      <ul className="text-gray-300 space-y-2">
-                        <li className="flex items-center cursor-pointer change-icon">
-                          <span className="icon-bg">
-                            <FaCheckCircle className=" mr-2" />
-                          </span>{" "}
-                          Professional live scoring system
-                        </li>
-                        <li className="flex items-center cursor-pointer change-icon">
-                          <span className="icon-bg">
-                            <FaCheckCircle className=" mr-2" />
-                          </span>{" "}
-                          HD streaming and commentary
-                        </li>
-                        <li className="flex items-center cursor-pointer change-icon">
-                          <span className="icon-bg">
-                            <FaCheckCircle className=" mr-2" />
-                          </span>{" "}
-                          Cash prizes worth ₹5,00,000
-                        </li>
-                        <li className="flex items-center cursor-pointer change-icon">
-                          <span className="icon-bg">
-                            <FaCheckCircle className=" mr-2" />
-                          </span>{" "}
-                          Professional umpiring panel
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="bg-[#4B4D4E] p-6 rounded-xl mb-4">
-                      <h5 className="text-white mb-3">Season 11 Highlights</h5>
-                      <div className="grid grid-cols-2 gap-4 text-center">
-                        <div>
-                          <div className="text-2xl font-bold icon-bg hover:text-white">
-                            <CountUpOnScroll base={0} target={16} />+
-                          </div>
-                          <div className="text-gray-400 text-sm">Teams</div>
-                        </div>
-                        <div>
-                          <div className="text-2xl font-bold icon-bg hover:text-white">
-                            <CountUpOnScroll base={0} target={45} />+
-                          </div>
-                          <div className="text-gray-400 text-sm">Matches</div>
-                        </div>
-                        <div>
-                          <div className="text-2xl font-bold icon-bg hover:text-white">
-                            <CountUpOnScroll base={0} target={240} />+
-                          </div>
-                          <div className="text-gray-400 text-sm">Players</div>
-                        </div>
-                        <div>
-                          <div className="text-2xl font-bold icon-bg hover:text-white">
-                            ₹<CountUpOnScroll base={0} target={5} />L
-                          </div>
-                          <div className="text-gray-400 text-sm">
-                            Prize Pool
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap gap-3 mt-6">
-                  {[
-                    "10 Seasons Completed",
-                    "Live Streaming",
-                    "Professional Umpires",
-                    "Player Awards",
-                    "Sponsorship Partners",
-                    "Media Coverage",
-                  ].map((tag, index) => (
-                    <span
-                      key={index}
-                      className="icon-bg season-btn cursor-pointer px-4 py-2 rounded-full text-sm font-medium text-gray-900 flex items-center"
-                    >
-                      <FaStar className="mr-2" /> {tag}
-                    </span>
-                  ))}
+                {/* Text */}
+                <div className="mt-6 max-w-xs">
+                  <h4 className="text-lg font-bold text-white">
+                    {event.title}
+                  </h4>
+                  <p className="text-sm text-gray-400 mt-2">{event.desc}</p>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -335,7 +294,7 @@ const RrAbout = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 xs:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            <div className="flex flex-wrap mx-[-15px]  justify-center">
               {[
                 {
                   icon: FaTrophy,
@@ -362,21 +321,19 @@ const RrAbout = () => {
                   name: "Badminton",
                   color: "text-indigo-400",
                 },
-                {
-                  icon: FaVolleyballBall,
-                  name: "Football",
-                  color: "text-green-500",
-                },
               ].map((sport, index) => (
-                <div
-                  data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
-                  key={index}
-                  className="background-gray p-4 rounded-xl text-center hover:transform hover:scale-110 transition-all duration-300 group"
-                >
-                  <sport.icon
-                    className={`text-3xl ${sport.color} mx-auto mb-3 group-hover:text-white transition-colors`}
-                  />
-                  <h4 className="text-white text-sm">{sport.name}</h4>
+                <div className="px-[15px] w-1/2 sm:w-1/3 md:w-1/5">
+                  <div
+                    data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+                    key={index}
+                    className="background-gray mb-4 p-4 rounded-xl text-center
+                                hover:transform hover:scale-110 transition-all duration-300 group"
+                  >
+                    <sport.icon
+                      className={`text-3xl ${sport.color} mx-auto mb-3 group-hover:text-white transition-colors`}
+                    />
+                    <h4 className="text-white text-sm">{sport.name}</h4>
+                  </div>
                 </div>
               ))}
             </div>

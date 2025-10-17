@@ -13,15 +13,15 @@ import {
 } from "react-icons/fa";
 
 // Images
-import Image1 from "../../assets/NewAssets/AboutBg2.jpg";
-import Image2 from "../../assets/NewAssets/sports-center.jpg";
-import Image3 from "../../assets/NewAssets/tenis-court.jpg";
-import Image4 from "../../assets/NewAssets/tenis-grass.jpg";
+import Image4 from "../../assets/newPhoto/tabletennis.webp";
+import Image3 from "../../assets/newPhoto/pickleball.jpg";
+import Image2 from "../../assets/newPhoto/indoor.jpg";
+import Image1 from "../../assets/newPhoto/mssportsarenaboxcricketindoorcricketnets1720855134478.webp";
 
-import Image6 from "../../assets/NewAssets/chess.jpg";
-import Image7 from "../../assets/NewAssets/AboutComplexmain.jpg";
-import Image8 from "../../assets/NewAssets/badminton.avif";
-import Image9 from "../../assets/NewAssets/Complex.avif";
+import Image6 from "../../assets/newPhoto/cricket-equipments-on-green-grass-2025-02-10-12-00-42-utc.jpg";
+import Image7 from "../../assets/complexHouse/mng14.jpeg";
+import Image8 from "../../assets/complexHouse/mng23.jpeg";
+import Image9 from "../../assets/complexHouse/mng24.jpeg";
 
 const RrManagment = () => {
   return (
@@ -63,9 +63,6 @@ const RrManagment = () => {
                       Empowering your sports journey with world-class facilities
                       and organized recreation.
                     </p>
-                    <div className="mt-5">
-                      <Button />
-                    </div>
                   </div>
                 </div>
               </div>
@@ -96,9 +93,6 @@ const RrManagment = () => {
                 the world of sports. Every step we take is driven by the pursuit
                 of greatness — inspiring the champions of today and tomorrow.
               </p>
-              <div className="mb-3">
-                <Button />
-              </div>
               <div className="mx-[-5px] flex flex-wrap ">
                 <div className="w-1/2 px-[5px]">
                   <div
@@ -170,17 +164,16 @@ const RrManagment = () => {
                   hands-on approach, we create experiences that leave a lasting
                   impact on players, organizers, and audiences alike.
                 </p>
-                <Button />
               </div>
               {/* Image Section */}
               <div data-aos="fade-left" className="w-full md:w-1/2 px-[15px]">
                 <div
-                  className="mr-auto h-[500px] w-full
-              md:max-w-[400px] rounded-3xl mb-8 md:mb-0
-              overflow-hidden relative"
+                  className="mx-auto w-full
+                  sm:max-w-[400px] rounded-3xl mb-8 md:mb-0
+                  overflow-hidden relative"
                 >
                   <img
-                    className="w-full object-center object-cover h-full"
+                    className="w-full object-bottom object-cover h-full"
                     src={Image6}
                     alt="Top View of Badminton"
                   />
@@ -204,7 +197,7 @@ const RrManagment = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 xs:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            <div className="flex flex-wrap mx-[-15px]  justify-center">
               {[
                 {
                   icon: FaTrophy,
@@ -231,21 +224,19 @@ const RrManagment = () => {
                   name: "Badminton",
                   color: "text-indigo-400",
                 },
-                {
-                  icon: FaVolleyballBall,
-                  name: "Football",
-                  color: "text-green-500",
-                },
               ].map((sport, index) => (
-                <div
-                  data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
-                  key={index}
-                  className="background-gray p-4 rounded-xl text-center hover:transform hover:scale-110 transition-all duration-300 group"
-                >
-                  <sport.icon
-                    className={`text-3xl ${sport.color} mx-auto mb-3 group-hover:text-white transition-colors`}
-                  />
-                  <h4 className="text-white text-sm">{sport.name}</h4>
+                <div className="px-[15px] w-1/2 sm:w-1/3 md:w-1/5">
+                  <div
+                    data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+                    key={index}
+                    className="background-gray mb-4 p-4 rounded-xl text-center
+                          hover:transform hover:scale-110 transition-all duration-300 group"
+                  >
+                    <sport.icon
+                      className={`text-3xl ${sport.color} mx-auto mb-3 group-hover:text-white transition-colors`}
+                    />
+                    <h4 className="text-white text-sm">{sport.name}</h4>
+                  </div>
                 </div>
               ))}
             </div>

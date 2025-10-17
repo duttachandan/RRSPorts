@@ -67,7 +67,7 @@ const RRComplex = () => {
                 via-red-400 to-red-600 bg-clip-text 
                 text-transparent mb-6"
               >
-                Red Riders Sports Complex Area
+                Red Riders Sports Complex
               </h1>
 
               <p

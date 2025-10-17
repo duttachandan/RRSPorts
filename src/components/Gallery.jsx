@@ -9,6 +9,19 @@ import {
   FaImage,
 } from "react-icons/fa";
 
+import mng1 from "../assets/complexHouse/mng1.jpeg";
+import mng2 from "../assets/complexHouse/mng2.jpeg";
+import mng3 from "../assets/complexHouse/mng3.jpeg";
+import mng4 from "../assets/complexHouse/mng4.jpeg";
+import mng5 from "../assets/complexHouse/mng5.jpeg";
+import mng6 from "../assets/complexHouse/mng6.jpeg";
+import mng7 from "../assets/complexHouse/mng7.jpeg";
+import mng8 from "../assets/complexHouse/mng8.jpeg";
+import mng9 from "../assets/complexHouse/mng9.jpeg";
+import mng10 from "../assets/complexHouse/mng10.jpeg";
+import mng11 from "../assets/complexHouse/mng11.jpeg";
+import mng12 from "../assets/complexHouse/mng12.jpeg";
+
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,86 +29,116 @@ const Gallery = () => {
 
   // Hardcoded gallery data
   const galleryItems = [
+    // ----------- EVENTS -----------
     {
       id: 1,
-      image:
-        "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      title: "Team Collaboration",
-      category: "team",
-      description: "Our team working together on innovative solutions",
-      date: "2024-01-15",
+      image: mng1,
+      title: "Auction Day Setup",
+      category: "events",
+      description:
+        "The venue being prepared for the Red Riders auction event with banners, screens, and team booths.",
+      date: "2024-01-10",
     },
     {
       id: 2,
-      image:
-        "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      title: "Project Launch",
+      image: mng2,
+      title: "Live Auction Stage",
       category: "events",
-      description: "Successful launch of our flagship project",
-      date: "2024-02-20",
+      description:
+        "Main auction stage ready with LED display showing live bidding updates and player stats.",
+      date: "2024-01-12",
     },
     {
       id: 3,
-      image:
-        "https://images.unsplash.com/photo-1513635625218-6956bc843133?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNwb3J0cyUyMHRlYW18ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500",
-      title: "Data Analytics",
-      category: "team",
-      description: "Advanced data analytics and insights dashboard",
-      date: "2024-01-30",
+      image: mng3,
+      title: "Bidding Session",
+      category: "events",
+      description:
+        "Franchise owners and coaches actively bidding for top-performing players during the live session.",
+      date: "2024-01-12",
     },
     {
       id: 4,
-      image:
-        "https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      title: "Office Environment",
+      image: mng4,
+      title: "Player Announcement",
       category: "events",
-      description: "Our modern and collaborative workspace",
-      date: "2024-03-10",
+      description:
+        "Auctioneer announcing player sales as excitement builds across the hall.",
+      date: "2024-01-13",
     },
     {
       id: 5,
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      title: "Client Meeting",
-      category: "team",
-      description: "Strategic discussion with our valued partners",
-      date: "2024-02-05",
+      image: mng5,
+      title: "Bid Tracking Screen",
+      category: "events",
+      description:
+        "Real-time bidding dashboard displaying current bids and team allocations.",
+      date: "2024-01-13",
     },
     {
       id: 6,
-      image:
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      title: "Tech Conference",
+      image: mng6,
+      title: "Post-Auction Celebration",
       category: "events",
-      description: "Representing at the annual technology summit",
-      date: "2024-03-18",
+      description:
+        "Red Riders management celebrating the successful completion of the auction event.",
+      date: "2024-01-14",
     },
+
+    // ----------- TEAMS -----------
     {
       id: 7,
-      image:
-        "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      title: "Team Building",
-      category: "team",
-      description: "Quarterly team building activities",
-      date: "2024-01-25",
+      image: mng7,
+      title: "Team Formation",
+      category: "teams",
+      description:
+        "Franchise representatives finalizing player selections and forming their teams.",
+      date: "2024-01-14",
     },
     {
       id: 8,
-      image:
-        "https://plus.unsplash.com/premium_photo-1675364947294-913a0f1f7ff1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3BvcnRzJTIwdGVhbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
-      title: "Product Development",
-      category: "events",
-      description: "Behind the scenes of our development process",
-      date: "2024-02-28",
+      image: mng8,
+      title: "Team Strategy Discussion",
+      category: "team",
+      description:
+        "Coaches and owners planning match strategies after the auction results.",
+      date: "2024-01-15",
     },
     {
       id: 9,
-      image:
-        "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-      title: "Innovation Lab",
+      image: mng9,
+      title: "Team Announcement Board",
       category: "team",
-      description: "Our state-of-the-art innovation laboratory",
-      date: "2024-03-05",
+      description:
+        "Final player rosters displayed after the conclusion of the Red Riders auction.",
+      date: "2024-01-15",
+    },
+    {
+      id: 10,
+      image: mng10,
+      title: "Team Photoshoot",
+      category: "team",
+      description:
+        "Official team photographs taken for media and promotion after squad finalization.",
+      date: "2024-01-16",
+    },
+    {
+      id: 11,
+      image: mng11,
+      title: "Team Owners Interaction",
+      category: "team",
+      description:
+        "Owners interacting with their newly selected players post-auction.",
+      date: "2024-01-16",
+    },
+    {
+      id: 12,
+      image: mng12,
+      title: "Management & Teams",
+      category: "teams",
+      description:
+        "Red Riders management with team representatives after a successful auction season.",
+      date: "2024-01-17",
     },
   ];
 

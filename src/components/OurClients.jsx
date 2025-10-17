@@ -7,6 +7,21 @@ import {
   FaQuoteLeft,
 } from "react-icons/fa";
 
+import testimonial1 from "../assets/Testimonial Sectio/cmpny1.png";
+import testimonial2 from "../assets/Testimonial Sectio/cmpny2.png";
+import testimonial3 from "../assets/Testimonial Sectio/cmpny3.png";
+import testimonial4 from "../assets/Testimonial Sectio/cmpny4.png";
+import testimonial6 from "../assets/Testimonial Sectio/cmpny6.png";
+import testimonial7 from "../assets/Testimonial Sectio/cmpny7.png";
+import testimonial8 from "../assets/Testimonial Sectio/cmpny8.png";
+import testimonial9 from "../assets/Testimonial Sectio/cmpny9.png";
+import testimonial10 from "../assets/Testimonial Sectio/cmpny10.png";
+import testimonial11 from "../assets/Testimonial Sectio/cmpny11.png";
+
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
+import "@splidejs/react-splide/css";
+
 import CountUpOnScroll from "../utils/countUpOnScroll";
 
 // import
@@ -16,87 +31,96 @@ const OurClients = () => {
   const clients = [
     {
       id: 1,
-      name: "TechNova Solutions",
-      logo: "https://via.placeholder.com/150x80/4F46E5/FFFFFF?text=TechNova",
-      industry: "Technology & IT",
-      website: "www.technova.com",
+      name: "Young Indians",
+      logo: testimonial1,
       description:
-        "Leading provider of innovative software solutions and digital transformation services.",
+        "A vibrant youth organization promoting leadership, sports, and social development through various club activities.",
       testimonial:
-        "Their expertise in modern web technologies helped us scale our platform to serve millions of users.",
-      rating: 5,
-      projects: 12,
-      since: "2018",
+        "Our partnership helped them streamline event registrations and manage large-scale tournaments efficiently.",
     },
     {
       id: 2,
-      name: "Global Finance Corp",
-      logo: "https://via.placeholder.com/150x80/059669/FFFFFF?text=GFC",
-      industry: "Financial Services",
-      website: "www.globalfinance.com",
+      name: "Round Table India",
+      logo: testimonial2,
       description:
-        "International banking and financial services corporation serving clients worldwide.",
+        "An active community network organizing charity sports events, inter-club tournaments, and youth programs.",
       testimonial:
-        "The solutions provided have significantly improved our operational efficiency and customer satisfaction.",
+        "The digital event dashboard simplified participant tracking and boosted engagement during our annual sports meet.",
       rating: 5,
       projects: 8,
       since: "2019",
     },
     {
       id: 3,
-      name: "MediCare Plus",
-      logo: "https://via.placeholder.com/150x80/DC2626/FFFFFF?text=MediCare+",
-      industry: "Healthcare",
-      website: "www.medicareplus.com",
+      name: "The Padel Club",
+      logo: testimonial3,
       description:
-        "Healthcare provider offering comprehensive medical services and patient care solutions.",
+        "A premium sports club offering world-class padel and racquet facilities with community-driven leagues.",
       testimonial:
-        "Their attention to detail and understanding of healthcare compliance made them the perfect partner.",
-      rating: 4,
-      projects: 6,
-      since: "2020",
+        "The event management tools helped us organize tournaments seamlessly and improved our member experience.",
     },
     {
       id: 4,
-      name: "EduFuture Learning",
-      logo: "https://via.placeholder.com/150x80/7C3AED/FFFFFF?text=EduFuture",
-      industry: "Education Technology",
-      website: "www.edufuture.com",
+      name: "St. Savier's School",
+      logo: testimonial4,
       description:
-        "Pioneering ed-tech company revolutionizing online learning experiences.",
+        "A reputed educational institution fostering young talent through sports programs and inter-school competitions.",
       testimonial:
-        "The platform they built has transformed how we deliver educational content to students globally.",
-      rating: 5,
-      projects: 10,
-      since: "2017",
-    },
-    {
-      id: 5,
-      name: "GreenEnergy Works",
-      logo: "https://via.placeholder.com/150x80/059669/FFFFFF?text=GreenEnergy",
-      industry: "Renewable Energy",
-      website: "www.greenenergyworks.com",
-      description:
-        "Sustainable energy solutions provider committed to a greener future.",
-      testimonial:
-        "Their innovative approach helped us optimize our energy management systems beautifully.",
-      rating: 4,
-      projects: 7,
-      since: "2021",
+        "Our system made it easy to manage student registrations, score tracking, and inter-house event scheduling.",
     },
     {
       id: 6,
-      name: "Retail Dynamics",
-      logo: "https://via.placeholder.com/150x80/EA580C/FFFFFF?text=Retail+D",
-      industry: "E-commerce & Retail",
-      website: "www.retaildynamics.com",
+      name: "The Bengal Rowing Club",
+      logo: testimonial6,
       description:
-        "Omni-channel retail solutions transforming customer shopping experiences.",
+        "A heritage club known for its water sports, social events, and fitness programs for members of all ages.",
       testimonial:
-        "The e-commerce platform they developed increased our sales by 300% in the first year.",
-      rating: 5,
-      projects: 15,
-      since: "2016",
+        "The club event module improved how we manage membership activities, booking systems, and tournament logistics.",
+    },
+    {
+      id: 7,
+      name: "Ace Sportz",
+      logo: testimonial7,
+      description:
+        "A sports development organization specializing in coaching, events, and team management across multiple disciplines.",
+      testimonial:
+        "With the event dashboard, we could easily coordinate team matches and automate attendance tracking.",
+    },
+    {
+      id: 8,
+      name: "Enterprises Club",
+      logo: testimonial8,
+      description:
+        "A corporate recreation club promoting sportsmanship and networking through regular sporting events.",
+      testimonial:
+        "The customized event scheduling system enhanced our coordination for corporate tournaments.",
+    },
+    {
+      id: 9,
+      name: "Hindusthan Club Limited",
+      logo: testimonial9,
+      description:
+        "One of the city’s most prestigious clubs offering extensive facilities for cricket, tennis, and social gatherings.",
+      testimonial:
+        "Our integrated event tracker helped manage multi-sport tournaments and improved member participation.",
+    },
+    {
+      id: 10,
+      name: "MyEo",
+      logo: testimonial10,
+      description:
+        "An exclusive entrepreneurs’ network that also promotes fitness and team-building sports events.",
+      testimonial:
+        "Their dynamic event portal allowed us to host inter-member competitions effortlessly and track results in real time.",
+    },
+    {
+      id: 11,
+      name: "The Saturday Club Limited",
+      logo: testimonial11,
+      description:
+        "A legacy sports and social club with premium event spaces and facilities for members and guests.",
+      testimonial:
+        "With the new system, managing bookings, tournaments, and event analytics became faster and more organized.",
     },
   ];
 
@@ -152,7 +176,9 @@ const OurClients = () => {
           <div className="bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-2xl p-8 border border-gray-700/50 backdrop-blur-sm">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-blue-400 mb-2"><CountUpOnScroll base={0} target={50} />+</div>
+                <div className="text-3xl font-bold text-blue-400 mb-2">
+                  <CountUpOnScroll base={0} target={50} />+
+                </div>
                 <div className="text-gray-400 text-sm">Clients Worldwide</div>
               </div>
               <div>
@@ -176,6 +202,80 @@ const OurClients = () => {
             </div>
           </div>
         </div>
+
+        {/* Our Clients Section */}
+        <section className="py-20 relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl md:text-3xl font-bold text-white">
+                Our Esteemed Clients
+              </h3>
+              <p className="text-gray-400 mt-2">
+                Trusted by the best clubs and organizations
+              </p>
+            </div>
+
+            {/* left/right fade masks */}
+            <div className="absolute left-0 top-0 w-28 h-full bg-gradient-to-r from-gray-900 to-transparent z-20 pointer-events-none" />
+            <div className="absolute right-0 top-0 w-28 h-full bg-gradient-to-l from-gray-900 to-transparent z-20 pointer-events-none" />
+
+            <div className="relative z-10">
+              <Splide
+                extensions={{ AutoScroll }}
+                options={{
+                  type: "loop",
+                  perPage: 5,
+                  gap: "1.5rem",
+                  arrows: false,
+                  pagination: false,
+                  drag: false,
+                  focus: "center",
+                  autoplay: false, // autoScroll provides continuous motion, so normal autoplay off
+                  speed: 4000,
+                  pauseOnHover: false,
+                  pauseOnFocus: false,
+                  autoScroll: {
+                    pauseOnHover: false,
+                    pauseOnFocus: false,
+                    rewind: false,
+                    speed: 1, // tweak speed (higher = faster)
+                  },
+                  breakpoints: {
+                    1024: { perPage: 4 },
+                    768: { perPage: 3 },
+                    480: { perPage: 2 },
+                  },
+                }}
+                aria-label="Client Logos Slider"
+              >
+                {[
+                  testimonial1,
+                  testimonial2,
+                  testimonial3,
+                  testimonial4,
+                  testimonial6,
+                  testimonial7,
+                  testimonial8,
+                  testimonial9,
+                  testimonial10,
+                  testimonial11,
+                ].map((logo, idx) => (
+                  <SplideSlide key={idx}>
+                    <div className="flex justify-center items-center py-6">
+                      <div className="w-28 h-28 md:w-36 md:h-36 bg-gray-800 rounded-xl p-3 flex items-center justify-center shadow-lg">
+                        <img
+                          src={logo}
+                          alt={`Client ${idx + 1}`}
+                          className="object-contain w-full h-full"
+                        />
+                      </div>
+                    </div>
+                  </SplideSlide>
+                ))}
+              </Splide>
+            </div>
+          </div>
+        </section>
 
         {/* Clients Grid */}
         <section className="py-3">
@@ -201,12 +301,6 @@ const OurClients = () => {
                         <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors duration-300 truncate">
                           {client.name}
                         </h3>
-                        <div className="flex items-center gap-2 mt-1">
-                          <FaIndustry className="text-blue-400 text-xs" />
-                          <span className="text-gray-400 text-sm truncate">
-                            {client.industry}
-                          </span>
-                        </div>
                       </div>
                     </div>
 
@@ -214,36 +308,6 @@ const OurClients = () => {
                     <p className="text-gray-300 text-sm mb-4 line-clamp-2">
                       {client.description}
                     </p>
-
-                    {/* Client Details */}
-                    <div className="space-y-3 mb-4">
-                      <div className="flex items-center gap-3 text-sm text-gray-300">
-                        <FaGlobe className="text-green-400 flex-shrink-0" />
-                        <span className="truncate">{client.website}</span>
-                      </div>
-
-                      <div className="flex items-center justify-between text-sm">
-                        <div className="flex items-center gap-2 text-gray-300">
-                          <span className="text-blue-400 font-semibold">
-                            {client.projects}
-                          </span>
-                          <span>projects</span>
-                        </div>
-                        <div className="text-gray-400">
-                          Since {client.since}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Rating */}
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-2">
-                        {renderStars(client.rating)}
-                      </div>
-                      <span className="text-gray-400 text-sm">
-                        {client.rating}/5
-                      </span>
-                    </div>
 
                     {/* Testimonial */}
                     <div className="bg-gray-800/50 rounded-xl p-4 border border-gray-700/30">

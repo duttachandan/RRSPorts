@@ -86,12 +86,12 @@ export const stats = [
   {
     id: "stats-1",
     title: "Active Members",
-    value: "500",
+    value: "100",
   },
   {
     id: "stats-2",
-    title: "Sports Disciplines",
-    value: "12",
+    title: "Active Sports",
+    value: "10",
   },
   {
     id: "stats-3",

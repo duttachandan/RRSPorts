@@ -73,28 +73,28 @@ const LiveStream = () => {
   const pastVideos = [
     {
       id: 1,
-      title: "Red Riders vs Thunder Kings",
-      url: "https://www.youtube.com/embed/Sagg08DrO5U",
+      title: "Red Riders Indoor Premier League - Day 18",
+      url: "https://www.youtube.com/embed/WROBmsgVxmQ?si=BUw12pAMVZuRMeXg",
     },
     {
       id: 2,
-      title: "Training Highlights – March",
-      url: "https://www.youtube.com/embed/ysz5S6PUM-U",
+      title: "HC CARNIVAL 2025 - PICKLEBALL FINALS - DAY 9",
+      url: "https://www.youtube.com/embed/a3Pu4Qo2B-I?si=G4evTCMNlR75PcsN",
     },
     {
       id: 3,
-      title: "Friendly Match Recap",
-      url: "https://www.youtube.com/embed/LXb3EKWsInQ",
+      title: "BULLS vs WOLVES Live Cricket Match",
+      url: "https://www.youtube.com/embed/hpMwMPETg2o?si=JWLot43Ni8fRQhVr",
     },
     {
       id: 4,
-      title: "Fitness Camp 2024",
-      url: "https://www.youtube.com/embed/aqz-KE-bpKQ",
+      title: "Red Riders Indoor Premier League - Day 17",
+      url: "https://www.youtube.com/embed/s62fui6L8Dw?si=GyCc8EIgj-nf19bL",
     },
     {
       id: 5,
-      title: "Coach’s Talk – Motivation",
-      url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      title: "Red Riders Indoor Premier League - Day 14",
+      url: "https://www.youtube.com/embed/JoV7UKC1h8E?si=rjx8g63Cxic-II24",
     },
   ];
 
@@ -104,7 +104,7 @@ const LiveStream = () => {
         <div className="max-w-7xl mx-auto px-3">
           <div data-aos="fade-up" className="text-center mb-12 text-overlay">
             <div className="inline-flex items-center gap-3 bg-gradient-to-r from-red-600/20 to-red-800/20 px-6 py-3 rounded-2xl border border-red-500/30 mb-4">
-              <div  className="flex items-center gap-2">
+              <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
                 <span className="text-red-300 font-medium text-lg">
                   LIVE NOW
@@ -141,11 +141,11 @@ const LiveStream = () => {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8 mt-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1">
             {/* Player */}
             <div data-aos="fade-left" className="lg:col-span-3">
               <div className="relative bg-gray-800/50 rounded-2xl shadow-2xl overflow-hidden border border-gray-700/50 backdrop-blur-sm">
-                <div className="p-6 border-b border-gray-700/50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div className="p-3 sm:p-6 border-b border-gray-700/50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                   <div>
                     <h2 className="text-2xl text-white">{streamData.title}</h2>
                     <p className="text-gray-400">{streamData.description}</p>
@@ -207,14 +207,14 @@ const LiveStream = () => {
                 </div>
 
                 {/* Match Details */}
-                <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="p-3 sm:p-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <h3 className="text-lg text-white mb-3">Match Details</h3>
+                    <h3 className="text-sm sm:text-base text-white mb-3">Match Details</h3>
                     <div className="space-y-2 text-gray-300">
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 text-xs sm:text-base">
                         <FaCalendar className="text-red-400" /> March 15, 2024
                       </div>
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 text-xs sm:text-base">
                         <FaClock className="text-red-400" /> 2:30 PM – 6:30 PM
                         IST
                       </div>
@@ -247,7 +247,7 @@ const LiveStream = () => {
             </div>
 
             {/* Sidebar */}
-            <div data-aos="fade-right" className="space-y-6">
+            {/* <div data-aos="fade-right" className="space-y-6">
               <div className="  rounded-2xl p-6 shadow-xl border border-gray-700/50 backdrop-blur-sm">
                 <h3 className="text-xl mb-4 text-white">Upcoming Streams</h3>
                 {[
@@ -286,7 +286,7 @@ const LiveStream = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

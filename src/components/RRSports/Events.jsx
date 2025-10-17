@@ -65,44 +65,30 @@ const Events = () => {
         const mockEvents = [
           {
             id: 1,
-            name: "Red Rider Conference 2025",
+            name: "Red riders ipl 10.0 auction",
             description:
-              "An exciting conference about the future of technology.",
-            location: "San Francisco, CA",
+              "An exciting auction about Red Riders IPL.",
+            location: "Kolkata",
             status: "Upcoming",
-            images: [mng1, mng2, mng3],
-          },
-          {
-            id: 2,
-            name: "Auction",
-            description: "Explore cutting-edge AI innovations.",
-            location: "New York, NY",
-            status: "Done",
-            images: [mng4, mng5, mng6],
-          },
-          {
-            id: 3,
-            name: "Red Rider Auction",
-            description: "Discussing sustainable energy solutions.",
-            location: "Austin, TX",
-            status: "Upcoming",
-            images: [mng7, mng8, mng9],
-          },
-          {
-            id: 4,
-            name: "Cricket Expo",
-            description: "A deep dive into blockchain technology.",
-            location: "Miami, FL",
-            status: "Done",
-            images: [mng10, mng11, mng12],
-          },
-          {
-            id: 5,
-            name: "Red Rider Pitch Night",
-            description: "Watch startups pitch to investors.",
-            location: "Seattle, WA",
-            status: "Upcoming",
-            images: [mng13, mng14, mng15],
+            images: [
+              mng1,
+              mng2,
+              mng3,
+              mng4,
+              mng5,
+              mng6,
+              mng7,
+              mng8,
+              mng9,
+              mng10,
+              mng11,
+              mng12,
+              mng13,
+              mng14,
+              mng15,
+              mng16,
+              mng17,
+            ],
           },
         ];
 
@@ -120,40 +106,44 @@ const Events = () => {
   }, []);
 
   const renderEventCard = (event) => (
-    <div
-      key={event.id}
-      className="bg-gray-900 rounded-xl shadow-lg overflow-hidden border border-gray-700"
-    >
-      <Splide
-        options={{
-          type: "loop",
-          autoplay: true,
-          interval: 3000,
-          pagination: false,
-          arrows: false,
-        }}
-      >
-        {event.images.map((img, index) => (
-          <SplideSlide key={index}>
-            <img
-              src={img}
-              alt={`Event ${event.name} Slide ${index + 1}`}
-              className="w-full h-48 object-cover"
-            />
-          </SplideSlide>
-        ))}
-      </Splide>
+    <div key={event.id} className="bg-gray-900 relative 
+    shadow-lg mb-16">
+      <div className="rounded-lg overflow-hidden">
+        <Splide
+          options={{
+            type: "loop",
+            autoplay: true,
+            interval: 3000,
+            pagination: false,
+            arrows: false,
+          }}
+        >
+          {event.images.map((img, index) => (
+            <SplideSlide key={index}>
+              <img
+                src={img}
+                alt={`Event ${event.name} Slide ${index + 1}`}
+                className="w-full h-[20rem] object-cover"
+              />
+            </SplideSlide>
+          ))}
+        </Splide>
+      </div>
 
-      <div className="p-5">
+      <div
+        className="p-5 absolute 
+      top-[100%] w-[95%] z-20 left-[50%] border border-gray-600
+      translate-x-[-50%] translate-y-[-50%] bg-all rounded-xl"
+      >
         <h4 className="text-xl font-semibold text-white mb-2">{event.name}</h4>
         <p className="text-gray-400 text-sm mb-2">{event.description}</p>
-        <p className="text-gray-500 text-sm italic">{event.location}</p>
+        {/* <p className="text-gray-500 text-sm italic">{event.location}</p> */}
       </div>
     </div>
   );
 
-  const upcomingEvents = events.filter((e) => e.status === "Upcoming");
-  const doneEvents = events.filter((e) => e.status === "Done");
+  // const upcomingEvents = events.filter((e) => e.status === "Upcoming");
+  // const doneEvents = events.filter((e) => e.status === "Done");
 
   // Skeleton Loader
   const EventSkeletonLoader = () => (
@@ -217,190 +207,12 @@ const Events = () => {
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="flex-1 py-16 px-4 sm:px-6 lg:px-8 mt-8">
-        {/* Header */}
-
-        {/* Events Grid */}
-        {/* {loading ? (
-          <EventSkeletonLoader />
-        ) : error ? (
-          <div className="max-w-2xl mx-auto text-center">
-            <div className="bg-red-900/20 border border-red-500/30 rounded-2xl p-8">
-              <div className="text-red-400 text-6xl mb-4">⚠️</div>
-              <h3 className="text-2xl font-semibold text-red-300 mb-2">
-                Error Loading Events
-              </h3>
-              <p className="text-red-200">{error}</p>
-            </div>
-          </div>
-        ) : events.length === 0 ? (
-          <div className="max-w-2xl mx-auto text-center">
-            <div className="bg-gray-800/50 border border-gray-700/50 rounded-2xl p-12">
-              <FaCalendar className="text-gray-500 text-6xl mx-auto mb-4" />
-              <h3 className="text-2xl font-semibold text-gray-300 mb-2">
-                No Events Scheduled
-              </h3>
-              <p className="text-gray-400">
-                Check back later for upcoming events and activities.
-              </p>
-            </div>
-          </div>
-        ) : (
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {events.map((event) => (
-                <div
-                  key={event.id}
-                  className="group relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-2xl shadow-2xl overflow-hidden border border-gray-700/50 backdrop-blur-sm hover:border-purple-500/30 transition-all duration-300 cursor-pointer"
-                  onClick={() => setSelectedEvent(event)}
-                >
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={event.image}
-                      alt={event.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
-
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-purple-600/90 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
-                        {event.category || "General"}
-                      </span>
-                    </div>
-
-                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="bg-black/50 rounded-full p-2 backdrop-blur-sm">
-                        <FaExpand className="text-white text-sm" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300 line-clamp-2">
-                      {event.title}
-                    </h3>
-
-                    <p className="text-gray-400 text-sm mb-4 line-clamp-2">
-                      {event.description || "No description provided."}
-                    </p>
-
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-3 text-sm text-gray-300">
-                        <FaCalendar className="text-purple-400 flex-shrink-0" />
-                        <span>{formatDate(event.date)}</span>
-                      </div>
-
-                      <div className="flex items-center gap-3 text-sm text-gray-300">
-                        <FaClock className="text-blue-400 flex-shrink-0" />
-                        <span>{event.time}</span>
-                      </div>
-
-                      <div className="flex items-center gap-3 text-sm text-gray-300">
-                        <FaMapMarkerAlt className="text-green-400 flex-shrink-0" />
-                        <span className="line-clamp-1">
-                          {event.location || "—"}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )} */}
-      </section>
-
-      {/* Event Modal */}
-      {/* {selectedEvent && (
-        <div
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-          onClick={() => setSelectedEvent(null)}
-        >
-          <div
-            className="bg-gray-900 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="relative">
-              <img
-                src={selectedEvent.image}
-                alt={selectedEvent.title}
-                className="w-full h-64 md:h-80 object-cover"
-              />
-              <button
-                onClick={() => setSelectedEvent(null)}
-                className="absolute top-4 right-4 bg-black/50 text-white rounded-full p-2 hover:bg-black/70 transition-colors duration-200 backdrop-blur-sm"
-              >
-                ✕
-              </button>
-            </div>
-
-            <div className="p-6 md:p-8">
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                  {selectedEvent.category || "General"}
-                </span>
-              </div>
-
-              <h2 className="text-3xl font-bold text-white mb-4">
-                {selectedEvent.title}
-              </h2>
-
-              <p className="text-gray-300 text-lg mb-6">
-                {selectedEvent.description || "No description available."}
-              </p>
-
-              <div className="grid md:grid-cols-3 gap-4 mb-6">
-                <div className="flex items-center gap-3 text-gray-300">
-                  <FaCalendar className="text-purple-400 text-xl" />
-                  <div>
-                    <p className="font-semibold">Date</p>
-                    <p>{formatDate(selectedEvent.date)}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 text-gray-300">
-                  <FaClock className="text-blue-400 text-xl" />
-                  <div>
-                    <p className="font-semibold">Time</p>
-                    <p>{selectedEvent.time}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 text-gray-300">
-                  <FaMapMarkerAlt className="text-green-400 text-xl" />
-                  <div>
-                    <p className="font-semibold">Location</p>
-                    <p>{selectedEvent.location || "—"}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )} */}
-
       <section className="py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
-        {/* Upcoming Events */}
         <div>
-          <h2 className="text-2xl font-bold text-white mb-6">
-            Upcoming Events
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {upcomingEvents.length > 0 ? (
-              upcomingEvents.map(renderEventCard)
-            ) : (
-              <p className="text-gray-400">No upcoming events.</p>
-            )}
-          </div>
-        </div>
-
-        {/* Done Events */}
-        <div>
-          <h2 className="text-2xl font-bold text-white mb-6">Already Done</h2>
+          <h2 className="text-2xl font-bold text-white mb-6">Past Events</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {doneEvents.length > 0 ? (
-              doneEvents.map(renderEventCard)
+            {events.length > 0 ? (
+              events.map(renderEventCard)
             ) : (
               <p className="text-gray-400">No past events.</p>
             )}

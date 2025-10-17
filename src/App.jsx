@@ -14,7 +14,7 @@ const App = () => {
   
   return (
     <main>
-      <section className="py-9">
+      <section className="py-2">
         <div className="max-w-7xl px-3 mx-auto">
           <Hero />
         </div>

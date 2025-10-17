@@ -17,7 +17,7 @@
 
 * {
   scroll-behavior: smooth;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "poppins", sans-serif;
 }
 
 body,
@@ -37,7 +37,7 @@ h6,
 }
 
 h1 span {
-  font-family: "Racing Sans One", sans-serif;
+  font-family: "poppins", sans-serif;
 }
 
 .bg-all {
@@ -200,8 +200,10 @@ h1 span {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background: url("./assets/NewAssets/Banner-img.jpg") no-repeat center/cover;
+  background: url("./assets/newPhoto/mssportsarenaboxcricketindoorcricketnets1720855134478.webp")
+    no-repeat center/cover;
   position: relative;
+  background-attachment: fixed;
 }
 
 .about-banner h1 {
@@ -443,15 +445,15 @@ h1 span {
   mask-size: cover;
 }
 
-.mng-about-banner {
+/* .mng-about-banner {
   padding: 70px 0;
-  background: url("./assets/NewAssets/chessBg.jpg") no-repeat center/cover;
+  background: url("./assets/complexHouse/mng19.jpeg") no-repeat center/cover;
 }
 
 .gallery-banner {
   padding: 70px 0;
-  background: url("./assets/NewAssets/chessBg.jpg") no-repeat center/cover;
-}
+  background: url("./assets/complexHouse/mng19.jpeg") no-repeat center/cover;
+} */
 
 .banner-img {
   position: relative;
@@ -539,7 +541,8 @@ h1 span {
 
 .complex-banner-section {
   min-height: 100vh;
-  background: url("./assets/NewAssets/AboutBg2.jpg") no-repeat center/cover;
+  background-attachment: fixed;
+  background: url("./assets/complexHouse/mng23.jpeg") no-repeat center/cover;
 }
 
 .fancybox__container {
@@ -579,6 +582,44 @@ h1 span {
   border: 1px solid #dc2626;
   width: fit-content;
   margin-bottom: 20px;
+}
+
+.clip-hexagon {
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+}
+
+.clip-hexagon-inner {
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+}
+
+.fade-mask-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(17, 24, 39, 1) 0%,
+    rgba(17, 24, 39, 0) 100%
+  );
+  z-index: 20;
+  pointer-events: none;
+}
+
+.fade-mask-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(
+    270deg,
+    rgba(17, 24, 39, 1) 0%,
+    rgba(17, 24, 39, 0) 100%
+  );
+  z-index: 20;
+  pointer-events: none;
 }
 
 /* Smooth fade for text */

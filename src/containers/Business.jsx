@@ -44,16 +44,16 @@ const Business = () => {
           unity, discipline, and lifelong camaraderie.
         </p>
 
-        <Button styles="mt-10" />
+        {/* <Button styles="mt-10" /> */}
       </div>
-      <div
+      {/* <div
         className={`w-[100%] px-[15px] mt-[50px] flex 
       flex-col md:flex-row justify-center align-center`}
       >
         {features.map((feature, index) => (
           <FeatureCard key={feature.id} {...feature} index={index} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

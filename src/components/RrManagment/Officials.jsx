@@ -69,14 +69,6 @@ const Officials = () => {
                 Meet the visionary leaders driving innovation and excellence in
                 our organization
               </p>
-              <ul className="breadCrumb">
-                <li>
-                  <Link className="text-gray-300" to="/">
-                    Home
-                  </Link>
-                </li>
-                <li>Committee</li>
-              </ul>
             </div>
           </div>
         </div>
@@ -136,9 +128,9 @@ const Officials = () => {
                           {data.managementName}
                         </h4>
                         <p>
-                          {data.managmentDesignation
-                            ? data.managmentDesignation
-                            : "Data Analyst"}
+                          {data.designation
+                            ? data.designation
+                            : "Mentor"}
                         </p>
                       </div>
                     </div>

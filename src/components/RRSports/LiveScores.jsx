@@ -29,12 +29,6 @@ const LiveScores = () => {
       color: "from-green-600 to-green-800",
     },
     {
-      id: "basketball",
-      name: "Basketball",
-      icon: FaBasketballBall,
-      color: "from-orange-600 to-orange-800",
-    },
-    {
       id: "tennis",
       name: "Tennis",
       icon: MdSportsTennis,
@@ -52,17 +46,6 @@ const LiveScores = () => {
       status: "LIVE",
       time: "38th Over",
       venue: "National Stadium",
-      update: "Just now",
-    },
-    {
-      id: 3,
-      sport: "basketball",
-      league: "NBA Finals",
-      teamA: { name: "Lakers", score: "98" },
-      teamB: { name: "Bulls", score: "95" },
-      status: "LIVE",
-      time: "Q4 - 03:45",
-      venue: "Staples Center",
       update: "Just now",
     },
     {

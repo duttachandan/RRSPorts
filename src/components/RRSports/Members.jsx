@@ -112,33 +112,36 @@ const Members = () => {
             <div className="flex flex-wrap mx-[-15px]">
               {members.map((data, index) => (
                 <div className="w-[33.33%] mng-card-layout px-[15px]">
-                  <div className="mng-card mb-5 md:mb-0 rounded-lg relative">
+                  <div className="mng-card mb-5 rounded-lg relative">
                     <div className="card-img">
                       {data?.memberImage ? (
                         <img
                           src={`data:image/png;base64,${data.memberImage}`}
                           alt={data.memberName}
-                          className="w-[100%] h-[350px] object-cover"
+                          className="w-[100%] h-[400px] sm:h-[500px] object-cover"
                         />
                       ) : (
                         <img
-                          className="w-[100%] h-[350px] object-cover"
+                          className="w-[100%] h-[400px] object-cover"
                           src="https://i.pravatar.cc/400?img=12"
                           alt=""
                         />
                       )}
                     </div>
                     <div
-                      className="card-docs 
+                      className="card-docs bottom-0 absolute
                         transition duration-100 
-                        absolute rounded-full text-center"
+                        rounded-full text-center"
                     >
-                      <h4 className="title4 text-2xl">{data.memberName}</h4>
-                      {/* <p>
-                        {data.managmentDesignation
-                          ? data.managmentDesignation
-                          : "Data Analyst"}
-                      </p> */}
+                      <h4 className="title4 text-xl sm:text-2xl">
+                        {data.memberName}
+                      </h4>
+                      <p className="text-sm text-bold">
+                        {data?.designation ? data.designation : "Cricketer"}
+                      </p>
+                      <span className="text-xs">
+                        {data?.company ? data.company : "Red Riders Club"}
+                      </span>
                     </div>
                   </div>
                 </div>

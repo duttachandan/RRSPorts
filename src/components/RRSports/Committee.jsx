@@ -117,7 +117,7 @@ const Committee = () => {
               {managements.map((data, img) => {
                 return (
                   <div className="w-[33.33%] mng-card-layout px-[15px]">
-                    <div className="mng-card rounded-lg relative">
+                    <div className="mng-card mb-[40px] rounded-lg relative">
                       <div className="card-img">
                         <img
                           src={`data:image/png;base64,${data.managementImage}`}
@@ -130,12 +130,10 @@ const Committee = () => {
                         transition duration-100 
                         absolute rounded-full text-center"
                       >
-                        <h4 className="title4 text-2xl">{data.managementName}</h4>
-                        <p>
-                          {data.managmentDesignation
-                            ? data.managmentDesignation
-                            : "Data Analyst"}
-                        </p>
+                        <h4 className="title4 text-2xl">
+                          {data.managementName}
+                        </h4>
+                        <p>{data.designation ? data.designation : ""}</p>
                       </div>
                     </div>
                   </div>
