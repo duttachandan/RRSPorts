@@ -9,18 +9,15 @@ import {
   FaImage,
 } from "react-icons/fa";
 
-import mng1 from "../assets/complexHouse/mng1.jpeg";
-import mng2 from "../assets/complexHouse/mng2.jpeg";
-import mng3 from "../assets/complexHouse/mng3.jpeg";
-import mng4 from "../assets/complexHouse/mng4.jpeg";
-import mng5 from "../assets/complexHouse/mng5.jpeg";
-import mng6 from "../assets/complexHouse/mng6.jpeg";
-import mng7 from "../assets/complexHouse/mng7.jpeg";
-import mng8 from "../assets/complexHouse/mng8.jpeg";
-import mng9 from "../assets/complexHouse/mng9.jpeg";
-import mng10 from "../assets/complexHouse/mng10.jpeg";
-import mng11 from "../assets/complexHouse/mng11.jpeg";
-import mng12 from "../assets/complexHouse/mng12.jpeg";
+import mng1 from "../assets/complexHouse/mng19.jpeg";
+import mng2 from "../assets/complexHouse/mng20.jpeg";
+import mng3 from "../assets/complexHouse/mng21.jpeg";
+import mng4 from "../assets/complexHouse/mng22.jpeg";
+import mng5 from "../assets/complexHouse/mng23.jpeg";
+import mng6 from "../assets/complexHouse/mng24.jpeg";
+import mng7 from "../assets/complexHouse/mng25.jpeg";
+import mng8 from "../assets/complexHouse/mng26.jpeg";
+import mng9 from "../assets/complexHouse/mng27.jpeg";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -112,33 +109,6 @@ const Gallery = () => {
       description:
         "Final player rosters displayed after the conclusion of the Red Riders auction.",
       date: "2024-01-15",
-    },
-    {
-      id: 10,
-      image: mng10,
-      title: "Team Photoshoot",
-      category: "team",
-      description:
-        "Official team photographs taken for media and promotion after squad finalization.",
-      date: "2024-01-16",
-    },
-    {
-      id: 11,
-      image: mng11,
-      title: "Team Owners Interaction",
-      category: "team",
-      description:
-        "Owners interacting with their newly selected players post-auction.",
-      date: "2024-01-16",
-    },
-    {
-      id: 12,
-      image: mng12,
-      title: "Management & Teams",
-      category: "teams",
-      description:
-        "Red Riders management with team representatives after a successful auction season.",
-      date: "2024-01-17",
     },
   ];
 
