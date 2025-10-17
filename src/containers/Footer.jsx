@@ -86,7 +86,7 @@ const Footer = () => (
             </p>
             <div className="flex flex-col gap-3">
               <a
-                href="https://instagram.com/RedRidersSportsClub"
+                href="https://www.instagram.com/redriderssports?igsh=MW12YnBtejI3ZnRheg=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-3 rounded-lg bg-gray-800/30 hover:bg-red-600/20 border border-gray-700/50 hover:border-red-500/30 transition-all duration-300 group"
