@@ -42,13 +42,10 @@ const LiveScores = () => {
     try {
       setLoading(true);
 
-      const response = await fetch(
-        `${API_URL}/api/public/matches`,
-        {
-          method: "GET",
-          headers: { "Content-Type": "application/json" },
-        }
-      );
+      const response = await fetch(`${API_URL}/api/public/matches`, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      });
 
       if (!response.ok) {
         throw new Error("Failed to fetch matches");
@@ -57,9 +54,7 @@ const LiveScores = () => {
       const result = await response.json();
 
       const matchList =
-        result?.data && Array.isArray(result.data)
-          ? result.data
-          : [];
+        result?.data && Array.isArray(result.data) ? result.data : [];
 
       setMatches(matchList);
     } catch (error) {
@@ -87,9 +82,7 @@ const LiveScores = () => {
     activeSport === "all"
       ? matches
       : matches.filter(
-          (match) =>
-            match?.sport?.toLowerCase() ===
-            activeSport?.toLowerCase()
+          (match) => match?.sport?.toLowerCase() === activeSport?.toLowerCase(),
         );
 
   return (
@@ -117,7 +110,6 @@ const LiveScores = () => {
       {/* ================= CONTENT ================= */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 mt-8">
         <div className="max-w-7xl mx-auto">
-
           {/* SPORTS FILTER */}
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <button
@@ -155,9 +147,7 @@ const LiveScores = () => {
             >
               <span className="flex items-center justify-center text-white">
                 <FaSync
-                  className={`text-lg mr-3 ${
-                    refreshing ? "animate-spin" : ""
-                  }`}
+                  className={`text-lg mr-3 ${refreshing ? "animate-spin" : ""}`}
                 />
                 {refreshing ? "Refreshing..." : "Refresh Scores"}
               </span>
@@ -206,23 +196,41 @@ const LiveScores = () => {
                   </div>
 
                   {/* TEAM A */}
-                  <div className="flex justify-between mb-4">
-                    <span className="font-medium text-white">
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="font-medium text-white truncate">
                       {match?.teamA?.name || "N/A"}
                     </span>
-                    <span className="text-2xl font-bold text-white">
-                      {match?.teamA?.score ?? "-"}
-                    </span>
+
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-2xl font-bold text-white">
+                        {match?.teamA?.score ?? "-"}
+                      </span>
+
+                      {match?.sport === "ck" && match?.teamA?.overs && (
+                        <span className="text-sm text-gray-400">
+                          ({match.teamA.overs} over)
+                        </span>
+                      )}
+                    </div>
                   </div>
 
                   {/* TEAM B */}
-                  <div className="flex justify-between">
-                    <span className="font-medium text-white">
+                  <div className="flex justify-between items-center">
+                    <span className="font-medium text-white truncate">
                       {match?.teamB?.name || "N/A"}
                     </span>
-                    <span className="text-2xl font-bold text-white">
-                      {match?.teamB?.score ?? "-"}
-                    </span>
+
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-2xl font-bold text-white">
+                        {match?.teamB?.score ?? "-"}
+                      </span>
+
+                      {match?.sport === "ck" && match?.teamB?.overs && (
+                        <span className="text-sm text-gray-400">
+                          ({match.teamB.overs} over)
+                        </span>
+                      )}
+                    </div>
                   </div>
 
                   {/* FOOTER */}
@@ -232,9 +240,7 @@ const LiveScores = () => {
                       <span>{match?.time || "TBD"}</span>
                     </div>
 
-                    <div>
-                      Updated: {match?.updatedAt || "-"}
-                    </div>
+                    <div>Updated: {match?.updatedAt || "-"}</div>
                   </div>
                 </div>
               );
@@ -244,9 +250,7 @@ const LiveScores = () => {
           {/* NO MATCHES */}
           {!loading && filteredMatches.length === 0 && (
             <div className="text-center py-16">
-              <div className="text-gray-500 text-lg">
-                No matches found
-              </div>
+              <div className="text-gray-500 text-lg">No matches found</div>
               <p className="text-gray-600 mt-2">
                 Check back later for live matches
               </p>
