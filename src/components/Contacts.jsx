@@ -130,17 +130,6 @@ const Contacts = () => {
 
       <section className="flex-1 py-16 px-4 sm:px-6 lg:px-8 mt-8">
         <div className="max-w-7xl mx-auto">
-          <div data-aos="zoom-in" className="w-[100%]">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.473546693781!2d77.72388407404901!3d12.87724301694202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae12ad90ff9ce1%3A0x933d33738d6f75bc!2sRed%20Riders%20Gokarting-%20Gokarting%20in%20Bangalore.!5e0!3m2!1sen!2sin!4v1760505390914!5m2!1sen!2sin"
-              className="w-[100%] h-[300px] rounded-xl mb-6"
-              style={{ border: "0" }}
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Left Column - Contact Information */}
             <div data-aos="fade-right" className="space-y-8">
